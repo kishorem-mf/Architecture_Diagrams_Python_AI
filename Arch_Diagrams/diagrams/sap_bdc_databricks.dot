@@ -1,0 +1,652 @@
+digraph "SAP Business Data Cloud to Databricks Architecture" {
+	graph [bb="0,0,2179.6,3161",
+		bgcolor=white,
+		compound=true,
+		fontcolor="#2D3436",
+		fontname="Sans-Serif",
+		fontsize=14,
+		label="SAP Business Data Cloud to Databricks Architecture",
+		lheight=0.21,
+		lp="1089.8,11.5",
+		lwidth=4.38,
+		nodesep=1.0,
+		pad=0.5,
+		rankdir=LR,
+		ranksep=1.5,
+		splines=ortho
+	];
+	node [fixedsize=true,
+		fontcolor="#2D3436",
+		fontname="Sans-Serif",
+		fontsize=13,
+		height=1.4,
+		imagescale=true,
+		label="\N",
+		labelloc=b,
+		shape=box,
+		style=rounded,
+		width=1.4
+	];
+	edge [color="#7B8894"];
+	subgraph "cluster_SAP S/4HANA Source Systems" {
+		graph [bb="8,1974,211.5,3153",
+			bgcolor="#E3F2FD",
+			fontname="Sans-Serif",
+			fontsize=13,
+			label="SAP S/4HANA Source Systems",
+			labeljust=l,
+			lheight=0.19,
+			lp="109.75,3142.2",
+			lwidth=2.60,
+			margin=20,
+			pencolor="#AEB6BE",
+			rankdir=LR,
+			shape=box,
+			style=rounded
+		];
+		"82777b12ce724757a64744ace58ed8a1"	[height=2.3,
+			image="/Users/nandu/.pyenv/versions/3.10.14/lib/python3.10/site-packages/resources/onprem/compute/server.png",
+			label="QM Module
+(Quality Management)",
+			pos="109.25,3029",
+			shape=none];
+		a1a3a0a81b274dfab2c9f589cfb25801	[height=2.3,
+			image="/Users/nandu/.pyenv/versions/3.10.14/lib/python3.10/site-packages/resources/onprem/compute/server.png",
+			label="MM Module
+(Materials Management)",
+			pos="109.25,2791",
+			shape=none];
+		f90b87a5450b4367b15bb2368a8dc75f	[height=2.3,
+			image="/Users/nandu/.pyenv/versions/3.10.14/lib/python3.10/site-packages/resources/onprem/compute/server.png",
+			label="PP Module
+(Production Planning)",
+			pos="109.25,2553",
+			shape=none];
+		"8ca19319e9d84588ae7b27c9a4668b9d"	[height=2.3,
+			image="/Users/nandu/.pyenv/versions/3.10.14/lib/python3.10/site-packages/resources/onprem/compute/server.png",
+			label="PLM Module
+(Product Lifecycle)",
+			pos="109.25,2315",
+			shape=none];
+		"4ab08cf2d63a432aa7bba8f01f9db651"	[height=2.3,
+			image="/Users/nandu/.pyenv/versions/3.10.14/lib/python3.10/site-packages/resources/onprem/compute/server.png",
+			label="SAP Ariba
+(Procurement)",
+			pos="109.25,2077",
+			shape=none];
+	}
+	subgraph "cluster_External Data Sources" {
+		graph [bb="34.25,784,185.25,1963",
+			bgcolor="#FFF9C4",
+			fontname="Sans-Serif",
+			fontsize=13,
+			label="External Data Sources",
+			labeljust=l,
+			lheight=0.19,
+			lp="109.75,1952.2",
+			lwidth=1.88,
+			margin=20,
+			pencolor="#AEB6BE",
+			rankdir=LR,
+			shape=box,
+			style=rounded
+		];
+		"39a74c3d66d749beb69cef5ae8154a96"	[height=2.3,
+			image="/Users/nandu/.pyenv/versions/3.10.14/lib/python3.10/site-packages/resources/azure/integration/api-management.png",
+			label="FDA APIs
+(Regulatory Data)",
+			pos="109.25,1839",
+			shape=none];
+		"71b98aaf1a434f27b8f66bdb2755bbe2"	[height=2.3,
+			image="/Users/nandu/.pyenv/versions/3.10.14/lib/python3.10/site-packages/resources/azure/integration/api-management.png",
+			label="OFAC
+(Sanctions List)",
+			pos="109.25,1601",
+			shape=none];
+		"049ccdc517584f759825220c2ed30b0a"	[height=2.3,
+			image="/Users/nandu/.pyenv/versions/3.10.14/lib/python3.10/site-packages/resources/azure/integration/api-management.png",
+			label="EPA
+(Environmental)",
+			pos="109.25,1363",
+			shape=none];
+		"1ab9111d3d804cc29dd48ba5e16ca85c"	[height=2.3,
+			image="/Users/nandu/.pyenv/versions/3.10.14/lib/python3.10/site-packages/resources/azure/integration/api-management.png",
+			label="NIH
+(Clinical Trials)",
+			pos="109.25,1125",
+			shape=none];
+		b9aa33209cda442d86a8f55998e15aac	[height=2.3,
+			image="/Users/nandu/.pyenv/versions/3.10.14/lib/python3.10/site-packages/resources/azure/integration/api-management.png",
+			label="Shelf Life Data
+(Raw Materials)",
+			pos="109.25,887",
+			shape=none];
+	}
+	subgraph "cluster_SAP Business Data Cloud (BDC)" {
+		graph [bb="292.75,1835,2171.6,2714",
+			bgcolor="#F3E5F5",
+			fontname="Sans-Serif",
+			fontsize=14,
+			label="SAP Business Data Cloud (BDC)",
+			labeljust=l,
+			lheight=0.21,
+			lp="399.75,2702.5",
+			lwidth=2.75,
+			margin=25,
+			pencolor="#AEB6BE",
+			rankdir=LR,
+			shape=box,
+			style=rounded
+		];
+		subgraph "cluster_BDC Foundation Services
+(Data Lifecycle Management)" {
+			graph [bb="317.75,1860,708.35,2327",
+				bgcolor="#E1BEE7",
+				fontname="Sans-Serif",
+				fontsize=12,
+				label="BDC Foundation Services
+(Data Lifecycle Management)",
+				labeljust=l,
+				lheight=0.35,
+				lp="403.75,2310.2",
+				lwidth=2.17,
+				margin=15,
+				pencolor="#AEB6BE",
+				rankdir=LR,
+				shape=box,
+				style=rounded
+			];
+			d211eb312f454b42857897106c4e0f77	[height=2.3,
+				image="/Users/nandu/.pyenv/versions/3.10.14/lib/python3.10/site-packages/resources/azure/integration/api-management.png",
+				label="Data Ingestion
+& Replication",
+				pos="383.15,1958",
+				shape=none];
+			"6197284cfa97420bb04909956bd290b1"	[height=2.3,
+				image="/Users/nandu/.pyenv/versions/3.10.14/lib/python3.10/site-packages/resources/azure/database/database-for-postgresql-servers.png",
+				label="HANA Cloud
+(Storage)",
+				pos="642.95,1958",
+				shape=none];
+			d211eb312f454b42857897106c4e0f77 -> "6197284cfa97420bb04909956bd290b1"	[dir=forward,
+				fontcolor="#2D3436",
+				fontname="Sans-Serif",
+				fontsize=13,
+				label=replicate,
+				lp="513.05,1964.8",
+				pos="e,592.57,1958 433.24,1958 433.24,1958 581.06,1958 581.06,1958",
+				style=dotted];
+			"3f64b5c175454c819cb65c2db8b20916"	[height=2.3,
+				image="/Users/nandu/.pyenv/versions/3.10.14/lib/python3.10/site-packages/resources/azure/storage/storage-accounts.png",
+				label="One Domain Model
+(Unified Context)",
+				pos="383.15,2196",
+				shape=none];
+		}
+		subgraph "cluster_SAP Datasphere
+(Integration & Semantic Layer)" {
+			graph [bb="886.85,1860,1411.7,2327",
+				bgcolor="#CE93D8",
+				fontname="Sans-Serif",
+				fontsize=12,
+				label="SAP Datasphere
+(Integration & Semantic Layer)",
+				labeljust=l,
+				lheight=0.35,
+				lp="975.48,2310.2",
+				lwidth=2.24,
+				margin=15,
+				pencolor="#AEB6BE",
+				rankdir=LR,
+				shape=box,
+				style=rounded
+			];
+			"23590be4780c46de93814f1d3052047a"	[height=2.3,
+				image="/Users/nandu/.pyenv/versions/3.10.14/lib/python3.10/site-packages/resources/azure/database/database-for-postgresql-servers.png",
+				label="Data Modeling
+& Relationships",
+				pos="952.25,1958",
+				shape=none];
+			"173b96ac0fbe4acba6c2b1bd0cb765b6"	[height=2.3,
+				image="/Users/nandu/.pyenv/versions/3.10.14/lib/python3.10/site-packages/resources/azure/analytics/log-analytics-workspaces.png",
+				label="Data Products
+Catalog",
+				pos="1346.3,1958",
+				shape=none];
+			"23590be4780c46de93814f1d3052047a" -> "173b96ac0fbe4acba6c2b1bd0cb765b6"	[dir=forward,
+				fontcolor="#2D3436",
+				fontname="Sans-Serif",
+				fontsize=13,
+				label=creates,
+				lp="1149.3,1964.8",
+				pos="e,1296,1958 1002.6,1958 1002.6,1958 1284.5,1958 1284.5,1958",
+				style=dotted];
+			acded4efdc7748dd89a305ba563b424c	[height=2.3,
+				image="/Users/nandu/.pyenv/versions/3.10.14/lib/python3.10/site-packages/resources/azure/storage/storage-accounts.png",
+				label="Semantic Layer
+(Business Context)",
+				pos="952.25,2196",
+				shape=none];
+			acded4efdc7748dd89a305ba563b424c -> "173b96ac0fbe4acba6c2b1bd0cb765b6"	[dir=forward,
+				fontcolor="#2D3436",
+				fontname="Sans-Serif",
+				fontsize=13,
+				label=enriches,
+				lp="1149.3,2128.8",
+				pos="e,1346.6,2040.6 1002.6,2196 1108.9,2196 1346.6,2196 1346.6,2196 1346.6,2196 1346.6,2052.1 1346.6,2052.1",
+				style=dotted];
+		}
+		subgraph "cluster_SAP Analytics Cloud (SAC)
+(Visualization & AI)" {
+			graph [bb="1621.7,1899,2146.6,2128",
+				bgcolor="#BA68C8",
+				fontname="Sans-Serif",
+				fontsize=12,
+				label="SAP Analytics Cloud (SAC)
+(Visualization & AI)",
+				labeljust=l,
+				lheight=0.35,
+				lp="1703.2,2111.2",
+				lwidth=2.04,
+				margin=15,
+				pencolor="#AEB6BE",
+				rankdir=LR,
+				shape=box,
+				style=rounded
+			];
+			"625168a558c04ba2811ff43e408243ef"	[height=2.3,
+				image="/Users/nandu/.pyenv/versions/3.10.14/lib/python3.10/site-packages/resources/azure/analytics/log-analytics-workspaces.png",
+				label="Dashboards
+& Reports",
+				pos="1687.1,1997",
+				shape=none];
+			"351f53c89b8840bf8b9785ce1ee82b03"	[height=2.3,
+				image="/Users/nandu/.pyenv/versions/3.10.14/lib/python3.10/site-packages/resources/azure/ml/machine-learning-service-workspaces.png",
+				label="AI-Driven
+Insights",
+				pos="2081.2,1997",
+				shape=none];
+			"625168a558c04ba2811ff43e408243ef" -> "351f53c89b8840bf8b9785ce1ee82b03"	[dir=forward,
+				fontcolor="#2D3436",
+				fontname="Sans-Serif",
+				fontsize=13,
+				label="AI insights",
+				lp="1884.1,2003.8",
+				pos="e,2030.8,1997 1737.4,1997 1737.4,1997 2019.3,1997 2019.3,1997",
+				style=dotted];
+		}
+		"6197284cfa97420bb04909956bd290b1" -> "23590be4780c46de93814f1d3052047a"	[dir=forward,
+			fontcolor="#2D3436",
+			fontname="Sans-Serif",
+			fontsize=13,
+			label=feeds,
+			lp="797.6,1964.8",
+			pos="e,901.89,1958 693.33,1958 693.33,1958 890.38,1958 890.38,1958",
+			style=dotted];
+		"3f64b5c175454c819cb65c2db8b20916" -> acded4efdc7748dd89a305ba563b424c	[dir=forward,
+			fontcolor="#2D3436",
+			fontname="Sans-Serif",
+			fontsize=13,
+			label="provides context",
+			lp="642.95,2658.8",
+			pos="e,902.15,2196 433.16,2196 433.16,2196 890.64,2196 890.64,2196",
+			style=dotted];
+		"173b96ac0fbe4acba6c2b1bd0cb765b6" -> "625168a558c04ba2811ff43e408243ef"	[dir=forward,
+			fontcolor="#2D3436",
+			fontname="Sans-Serif",
+			fontsize=13,
+			label=powers,
+			lp="1516.7,1951.8",
+			pos="e,1636.9,1998.6 1396.6,1998.6 1396.6,1998.6 1625.4,1998.6 1625.4,1998.6",
+			style=dotted];
+		"173b96ac0fbe4acba6c2b1bd0cb765b6" -> "625168a558c04ba2811ff43e408243ef"	[color="#E91E63",
+			dir=forward,
+			fontcolor="#2D3436",
+			fontname="Sans-Serif",
+			fontsize=13,
+			label="for analytics",
+			lp="1516.7,2042.8",
+			pos="e,1636.9,1956.4 1396.6,1956.4 1396.6,1956.4 1625.4,1956.4 1625.4,1956.4",
+			style=dashed];
+		"3e8cd548aa1f4d6297d3181e1741b26f"	[height=2.3,
+			image="/Users/nandu/.pyenv/versions/3.10.14/lib/python3.10/site-packages/resources/onprem/database/mssql.png",
+			label="SAP BW/4HANA
+(Legacy Warehouse)",
+			pos="642.95,2425",
+			shape=none];
+		"3e8cd548aa1f4d6297d3181e1741b26f" -> "23590be4780c46de93814f1d3052047a"	[dir=forward,
+			fontcolor="#2D3436",
+			fontname="Sans-Serif",
+			fontsize=13,
+			label="legacy data",
+			lp="797.6,2243.8",
+			pos="e,952.55,2040.6 642.55,2342.2 642.55,2234.6 642.55,2060.3 642.55,2060.3 642.55,2060.3 952.55,2060.3 952.55,2060.3 952.55,2060.3 \
+952.55,2052.1 952.55,2052.1",
+			style=dashed];
+	}
+	subgraph "cluster_Databricks Workspace" {
+		graph [bb="572.55,1124,1022.7,1827",
+			bgcolor="#FFF3E0",
+			fontname="Sans-Serif",
+			fontsize=13,
+			label="Databricks Workspace",
+			labeljust=l,
+			lheight=0.19,
+			lp="647.3,1816.2",
+			lwidth=1.85,
+			margin=20,
+			pencolor="#AEB6BE",
+			rankdir=LR,
+			shape=box,
+			style=rounded
+		];
+		"6da57798a0f043ef9f0666f400d83970"	[height=2.3,
+			image="/Users/nandu/.pyenv/versions/3.10.14/lib/python3.10/site-packages/resources/onprem/analytics/databricks.png",
+			label="Databricks
+Lakehouse Platform",
+			pos="642.95,1227",
+			shape=none];
+		"41268474bda542c0a67f5951816e556f"	[height=2.3,
+			image="/Users/nandu/.pyenv/versions/3.10.14/lib/python3.10/site-packages/resources/azure/analytics/log-analytics-workspaces.png",
+			label="Unity Catalog
+(Governance)",
+			pos="952.25,1465",
+			shape=none];
+		"6da57798a0f043ef9f0666f400d83970" -> "41268474bda542c0a67f5951816e556f"	[dir=forward,
+			fontcolor="#2D3436",
+			fontname="Sans-Serif",
+			fontsize=13,
+			label=manages,
+			lp="797.6,1438.8",
+			pos="e,901.93,1424.6 659.55,1309.7 659.55,1363.8 659.55,1424.6 659.55,1424.6 659.55,1424.6 890.42,1424.6 890.42,1424.6",
+			style=dotted];
+		"76965b4cd6124b719f38e6399d5fb6bb"	[height=2.3,
+			image="/Users/nandu/.pyenv/versions/3.10.14/lib/python3.10/site-packages/resources/azure/storage/data-lake-storage.png",
+			label="Delta Lake
+(Storage)",
+			pos="952.25,1703",
+			shape=none];
+		"6da57798a0f043ef9f0666f400d83970" -> "76965b4cd6124b719f38e6399d5fb6bb"	[dir=forward,
+			fontcolor="#2D3436",
+			fontname="Sans-Serif",
+			fontsize=13,
+			label=stores,
+			lp="797.6,1619.8",
+			pos="e,902.07,1636.1 626.55,1309.8 626.55,1429.3 626.55,1636.1 626.55,1636.1 626.55,1636.1 890.56,1636.1 890.56,1636.1",
+			style=dotted];
+		"178c9bcc303c4a2ab389a751c9dd4d4a"	[height=2.3,
+			image="/Users/nandu/.pyenv/versions/3.10.14/lib/python3.10/site-packages/resources/onprem/analytics/spark.png",
+			label="Spark
+(Compute)",
+			pos="952.25,1227",
+			shape=none];
+		"6da57798a0f043ef9f0666f400d83970" -> "178c9bcc303c4a2ab389a751c9dd4d4a"	[dir=forward,
+			fontcolor="#2D3436",
+			fontname="Sans-Serif",
+			fontsize=13,
+			label=executes,
+			lp="797.6,1233.8",
+			pos="e,901.89,1227 693.33,1227 693.33,1227 890.38,1227 890.38,1227",
+			style=dotted];
+	}
+	subgraph "cluster_ML & Data Enrichment" {
+		graph [bb="881.85,648,1416.7,1113",
+			bgcolor="#E8F5E9",
+			fontname="Sans-Serif",
+			fontsize=13,
+			label="ML & Data Enrichment",
+			labeljust=l,
+			lheight=0.19,
+			lp="956.23,1102.2",
+			lwidth=1.84,
+			margin=20,
+			pencolor="#AEB6BE",
+			rankdir=LR,
+			shape=box,
+			style=rounded
+		];
+		"04b8047a1f464d0a8acc0e751ee4e29a"	[height=2.3,
+			image="/Users/nandu/.pyenv/versions/3.10.14/lib/python3.10/site-packages/resources/azure/ml/machine-learning-service-workspaces.png",
+			label="Feature Engineering
+& ML Models",
+			pos="952.25,751",
+			shape=none];
+		"1d76319c5a244987acd97480d9c92edb"	[height=2.3,
+			image="/Users/nandu/.pyenv/versions/3.10.14/lib/python3.10/site-packages/resources/azure/storage/data-lake-storage.png",
+			label="Enriched Datasets
+(ML Outputs)",
+			pos="1346.3,751",
+			shape=none];
+		"04b8047a1f464d0a8acc0e751ee4e29a" -> "1d76319c5a244987acd97480d9c92edb"	[dir=forward,
+			fontcolor="#2D3436",
+			fontname="Sans-Serif",
+			fontsize=13,
+			label=generates,
+			lp="1149.3,757.75",
+			pos="e,1296,751 1002.6,751 1002.6,751 1284.5,751 1284.5,751"];
+		f9731b5d03bf4cd294cc0a211c2b9ff1	[height=2.3,
+			image="/Users/nandu/.pyenv/versions/3.10.14/lib/python3.10/site-packages/resources/azure/analytics/log-analytics-workspaces.png",
+			label="Custom Analytics
+& Insights",
+			pos="952.25,989",
+			shape=none];
+		f9731b5d03bf4cd294cc0a211c2b9ff1 -> "1d76319c5a244987acd97480d9c92edb"	[dir=forward,
+			fontcolor="#2D3436",
+			fontname="Sans-Serif",
+			fontsize=13,
+			label=analyzes,
+			lp="1149.3,921.75",
+			pos="e,1346.6,833.6 1002.6,992 1108.9,992 1346.6,992 1346.6,992 1346.6,992 1346.6,845.11 1346.6,845.11"];
+	}
+	subgraph "cluster_Security & Governance" {
+		graph [bb="1269.8,31,1423.8,486",
+			bgcolor="#FFEBEE",
+			fontname="Sans-Serif",
+			fontsize=13,
+			label="Security & Governance",
+			labeljust=l,
+			lheight=0.19,
+			lp="1346.8,475.25",
+			lwidth=1.92,
+			margin=15,
+			pencolor="#AEB6BE",
+			rankdir=LR,
+			shape=box,
+			style=dashed
+		];
+		"41cd698fc039424fbfcb32cb5d8ce79c"	[height=2.3,
+			image="/Users/nandu/.pyenv/versions/3.10.14/lib/python3.10/site-packages/resources/onprem/compute/server.png",
+			label="mTLS
+Encryption",
+			pos="1346.3,367",
+			shape=none];
+		f3a6a65e889a44ceae61df2ec4f89369	[height=2.3,
+			image="/Users/nandu/.pyenv/versions/3.10.14/lib/python3.10/site-packages/resources/onprem/compute/server.png",
+			label="OAuth/OpenID
+Authentication",
+			pos="1346.3,129",
+			shape=none];
+	}
+	"82777b12ce724757a64744ace58ed8a1" -> d211eb312f454b42857897106c4e0f77	[color="#4285F4",
+		dir=forward,
+		fontcolor="#2D3436",
+		fontname="Sans-Serif",
+		fontsize=13,
+		label="CDS/RF",
+		lp="249.12,2929.8",
+		pos="e,332.96,2033 159.48,3029 215.56,3029 298.55,3029 298.55,3029 298.55,3029 298.55,2033 298.55,2033 298.55,2033 321.45,2033 321.45,\
+2033"];
+	a1a3a0a81b274dfab2c9f589cfb25801 -> d211eb312f454b42857897106c4e0f77	[color="#4285F4",
+		dir=forward,
+		fontcolor="#2D3436",
+		fontname="Sans-Serif",
+		fontsize=13,
+		label="CDS/RF",
+		lp="249.12,2696.8",
+		pos="e,332.78,2025.3 159.35,2791 204.4,2791 263.55,2791 263.55,2791 263.55,2791 263.55,2025.3 263.55,2025.3 263.55,2025.3 321.26,2025.3 \
+321.26,2025.3"];
+	f90b87a5450b4367b15bb2368a8dc75f -> d211eb312f454b42857897106c4e0f77	[color="#4285F4",
+		dir=forward,
+		fontcolor="#2D3436",
+		fontname="Sans-Serif",
+		fontsize=13,
+		label="CDS/RF",
+		lp="249.12,2467.8",
+		pos="e,332.96,2017.5 159.5,2489 192.1,2489 228.55,2489 228.55,2489 228.55,2489 228.55,2017.5 228.55,2017.5 228.55,2017.5 321.44,2017.5 \
+321.44,2017.5"];
+	"8ca19319e9d84588ae7b27c9a4668b9d" -> d211eb312f454b42857897106c4e0f77	[color="#4285F4",
+		dir=forward,
+		fontcolor="#2D3436",
+		fontname="Sans-Serif",
+		fontsize=13,
+		label="CDS/RF",
+		lp="249.12,2247.8",
+		pos="e,333.1,2009.7 159.36,2255.5 177.93,2255.5 194.55,2255.5 194.55,2255.5 194.55,2255.5 194.55,2009.7 194.55,2009.7 194.55,2009.7 321.59,\
+2009.7 321.59,2009.7"];
+	"4ab08cf2d63a432aa7bba8f01f9db651" -> d211eb312f454b42857897106c4e0f77	[color="#4285F4",
+		dir=forward,
+		fontcolor="#2D3436",
+		fontname="Sans-Serif",
+		fontsize=13,
+		label="Ariba API",
+		lp="249.12,2046.8",
+		pos="e,332.77,2002 159.49,2002 159.49,2002 321.25,2002 321.25,2002"];
+	"39a74c3d66d749beb69cef5ae8154a96" -> d211eb312f454b42857897106c4e0f77	[color="#34A853",
+		dir=forward,
+		fontcolor="#2D3436",
+		fontname="Sans-Serif",
+		fontsize=13,
+		label="REST API",
+		lp="249.12,1882.8",
+		pos="e,332.77,1898.5 159.49,1898.5 159.49,1898.5 321.25,1898.5 321.25,1898.5"];
+	"71b98aaf1a434f27b8f66bdb2755bbe2" -> d211eb312f454b42857897106c4e0f77	[color="#34A853",
+		dir=forward,
+		fontcolor="#2D3436",
+		fontname="Sans-Serif",
+		fontsize=13,
+		label="REST API",
+		lp="249.12,1680.8",
+		pos="e,352.55,1875.3 159.37,1667.9 230.59,1667.9 352.55,1667.9 352.55,1667.9 352.55,1667.9 352.55,1863.7 352.55,1863.7"];
+	"049ccdc517584f759825220c2ed30b0a" -> d211eb312f454b42857897106c4e0f77	[color="#34A853",
+		dir=forward,
+		fontcolor="#2D3436",
+		fontname="Sans-Serif",
+		fontsize=13,
+		label="REST API",
+		lp="249.12,1442.8",
+		pos="e,373.55,1875.3 159.58,1403.4 236.27,1403.4 373.55,1403.4 373.55,1403.4 373.55,1403.4 373.55,1863.8 373.55,1863.8"];
+	"1ab9111d3d804cc29dd48ba5e16ca85c" -> d211eb312f454b42857897106c4e0f77	[color="#34A853",
+		dir=forward,
+		fontcolor="#2D3436",
+		fontname="Sans-Serif",
+		fontsize=13,
+		label="REST API",
+		lp="249.12,1241.8",
+		pos="e,393.55,1875.4 159.42,1176 241.04,1176 393.55,1176 393.55,1176 393.55,1176 393.55,1863.9 393.55,1863.9"];
+	b9aa33209cda442d86a8f55998e15aac -> d211eb312f454b42857897106c4e0f77	[color="#34A853",
+		dir=forward,
+		fontcolor="#2D3436",
+		fontname="Sans-Serif",
+		fontsize=13,
+		label="REST API",
+		lp="249.12,1077.8",
+		pos="e,413.55,1875.4 159.5,938 245.93,938 413.55,938 413.55,938 413.55,938 413.55,1863.9 413.55,1863.9"];
+	f9a639292efc4a849b14c14d62380211	[height=2.7,
+		image="/Users/nandu/.pyenv/versions/3.10.14/lib/python3.10/site-packages/resources/azure/storage/data-lake-storage.png",
+		label="SAP BDC Connector
+for Databricks
+(Delta Sharing)",
+		pos="1687.1,627",
+		shape=none];
+	"173b96ac0fbe4acba6c2b1bd0cb765b6" -> f9a639292efc4a849b14c14d62380211	[color="#9C27B0",
+		dir=forward,
+		fontcolor="#2D3436",
+		fontname="Sans-Serif",
+		fontsize=13,
+		label="SAP Data Products
+(zero-copy, live share)",
+		lp="1516.7,863.5",
+		pos="e,1670.6,724.13 1396.6,1888.2 1487.7,1888.2 1670.6,1888.2 1670.6,1888.2 1670.6,1888.2 1670.6,735.64 1670.6,735.64",
+		style=bold];
+	f9a639292efc4a849b14c14d62380211 -> "6da57798a0f043ef9f0666f400d83970"	[color="#9C27B0",
+		dir=forward,
+		fontcolor="#2D3436",
+		fontname="Sans-Serif",
+		fontsize=13,
+		label="Delta Sharing Protocol
+(governed, semantic metadata)",
+		lp="1149.3,572.5",
+		pos="e,626.55,1144.5 1637,622.07 1426.8,622.07 626.55,622.07 626.55,622.07 626.55,622.07 626.55,1133 626.55,1133",
+		style=bold];
+	a20be2fd87a44d25bdc63b574dd4e067	[height=2.7,
+		image="/Users/nandu/.pyenv/versions/3.10.14/lib/python3.10/site-packages/resources/azure/database/database-for-postgresql-servers.png",
+		label="BDC Enriched
+Data Products
+(for SAP Consumers)",
+		pos="2081.2,815",
+		shape=none];
+	f9a639292efc4a849b14c14d62380211 -> a20be2fd87a44d25bdc63b574dd4e067	[color="#4CAF50",
+		dir=forward,
+		fontcolor="#2D3436",
+		fontname="Sans-Serif",
+		fontsize=13,
+		label="publish enriched data
+(semantic metadata preserved)",
+		lp="1884.1,794.5",
+		pos="e,2031,779 1703.6,724.12 1703.6,753.91 1703.6,779 1703.6,779 1703.6,779 2019.5,779 2019.5,779",
+		style=bold];
+	"6da57798a0f043ef9f0666f400d83970" -> "04b8047a1f464d0a8acc0e751ee4e29a"	[color="#FF9800",
+		dir=forward,
+		fontcolor="#2D3436",
+		fontname="Sans-Serif",
+		fontsize=13,
+		label="data engineering
+& blending",
+		lp="797.6,950.5",
+		pos="e,901.93,814.07 659.55,1144.4 659.55,1023.9 659.55,814.07 659.55,814.07 659.55,814.07 890.42,814.07 890.42,814.07"];
+	"76965b4cd6124b719f38e6399d5fb6bb" -> "04b8047a1f464d0a8acc0e751ee4e29a"	[color="#FF9800",
+		dir=forward,
+		fontcolor="#2D3436",
+		fontname="Sans-Serif",
+		fontsize=13,
+		label="raw data",
+		lp="797.6,1316",
+		pos="e,902.02,823.93 902.02,1652 856.85,1652 797.55,1652 797.55,1652 797.55,1652 797.55,823.93 797.55,823.93 797.55,823.93 890.51,823.93 \
+890.51,823.93"];
+	"1d76319c5a244987acd97480d9c92edb" -> f9a639292efc4a849b14c14d62380211	[color="#4CAF50",
+		dir=forward,
+		fontcolor="#2D3436",
+		fontname="Sans-Serif",
+		fontsize=13,
+		label="ML-enriched datasets
+(Delta Sharing back)",
+		lp="1516.7,725.5",
+		pos="e,1636.9,696.2 1396.6,696.2 1396.6,696.2 1625.4,696.2 1625.4,696.2",
+		style=bold];
+	"41cd698fc039424fbfcb32cb5d8ce79c" -> f9a639292efc4a849b14c14d62380211	[color=red,
+		dir=forward,
+		fontcolor="#2D3436",
+		fontname="Sans-Serif",
+		fontsize=13,
+		label=secures,
+		lp="1516.7,441.75",
+		pos="e,1636.9,575.93 1346.6,449.58 1346.6,507.98 1346.6,575.93 1346.6,575.93 1346.6,575.93 1625.3,575.93 1625.3,575.93",
+		style=dotted];
+	f3a6a65e889a44ceae61df2ec4f89369 -> f9a639292efc4a849b14c14d62380211	[color=red,
+		dir=forward,
+		fontcolor="#2D3436",
+		fontname="Sans-Serif",
+		fontsize=13,
+		label=authenticates,
+		lp="1516.7,277.75",
+		pos="e,1687.6,530.09 1396.7,129 1491.6,129 1687.6,129 1687.6,129 1687.6,129 1687.6,518.58 1687.6,518.58",
+		style=dotted];
+	a20be2fd87a44d25bdc63b574dd4e067 -> "173b96ac0fbe4acba6c2b1bd0cb765b6"	[color="#E91E63",
+		dir=forward,
+		fontcolor="#2D3436",
+		fontname="Sans-Serif",
+		fontsize=13,
+		label="enriched data",
+		lp="1687.1,942.75",
+		pos="e,1396.5,1901.2 2081.6,911.87 2081.6,1178.1 2081.6,1901.2 2081.6,1901.2 2081.6,1901.2 1408.1,1901.2 1408.1,1901.2"];
+}
