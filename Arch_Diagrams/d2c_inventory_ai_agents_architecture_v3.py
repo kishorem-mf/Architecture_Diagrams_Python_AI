@@ -90,7 +90,7 @@ with Diagram(
     filename="diagrams/d2c_inventory_ai_agents_v3",
     direction="LR",
     graph_attr=graph_attr,
-    outformat="png",
+    outformat=["png", "dot"],
     show=False
 ):
 
@@ -203,12 +203,31 @@ with Diagram(
     feedback_loop >> Edge(label="insights", color=COLOR_FEEDBACK, style="dotted") >> agent_core
     feedback_loop >> Edge(label="update", color=COLOR_FEEDBACK, style="dotted") >> feature_eng
 
-print("✓ PNG diagram generated successfully in diagrams/")
+print("✓ PNG and DOT files generated in diagrams/")
+
+# Convert to Draw.io format using absolute path
+try:
+    import os
+    dot_path = os.path.abspath("diagrams/d2c_inventory_ai_agents_v3.dot")
+    drawio_path = os.path.abspath("diagrams/d2c_inventory_ai_agents_v3.drawio")
+
+    subprocess.run([
+        "graphviz2drawio",
+        dot_path,
+        "-o", drawio_path
+    ], check=True, cwd=os.path.dirname(os.path.abspath(__file__)))
+    print("✓ Draw.io file generated: diagrams/d2c_inventory_ai_agents_v3.drawio")
+except subprocess.CalledProcessError as e:
+    print(f"✗ Draw.io conversion failed: {e}")
+except Exception as e:
+    print(f"✗ Draw.io conversion error: {e}")
 
 print("\n" + "="*80)
 print("Generated files (Version 3 - Left-to-Right with AgentBricks):")
 print("="*80)
-print("  - diagrams/d2c_inventory_ai_agents_v3.png (4702 x 2389 px)")
+print("  - diagrams/d2c_inventory_ai_agents_v3.png")
+print("  - diagrams/d2c_inventory_ai_agents_v3.dot")
+print("  - diagrams/d2c_inventory_ai_agents_v3.drawio")
 
 print("\n" + "="*80)
 print("📊 D2C Inventory Optimization - V3 ARCHITECTURE:")

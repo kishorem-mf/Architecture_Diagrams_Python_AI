@@ -1,0 +1,492 @@
+digraph "D2C Inventory Optimization - AI Agents (v3 - Left-to-Right)" {
+	graph [bb="0,0,3238.9,1503.5",
+		bgcolor=white,
+		compound=true,
+		fontcolor="#2D3436",
+		fontname="Sans-Serif",
+		fontsize=16,
+		label="D2C Inventory Optimization - AI Agents (v3 - Left-to-Right)",
+		lheight=0.23,
+		lp="1619.4,12.25",
+		lwidth=5.77,
+		nodesep=0.8,
+		pad=2.0,
+		rankdir=LR,
+		ranksep=1.5,
+		splines=ortho
+	];
+	node [fixedsize=true,
+		fontcolor="#2D3436",
+		fontname="Sans-Serif",
+		fontsize=13,
+		height=1.4,
+		imagescale=true,
+		label="\N",
+		labelloc=b,
+		shape=box,
+		style=rounded,
+		width=1.4
+	];
+	edge [color="#7B8894"];
+	subgraph "cluster_Data Sources" {
+		graph [bb="8,191.5,124.8,676.5",
+			bgcolor="#E3F2FD",
+			fontcolor="#4285F4",
+			fontname="Sans-Serif",
+			fontsize=14,
+			label="Data Sources",
+			labeljust=l,
+			lheight=0.21,
+			lp="56.875,665",
+			lwidth=1.14,
+			pencolor="#AEB6BE",
+			penwidth=2.5,
+			rankdir=LR,
+			shape=box,
+			style=rounded
+		];
+		c0fa9136fef844c7bb5ef135c41e0c6d	[height=2.7,
+			image="/Users/nandu/.pyenv/versions/3.10.14/lib/python3.10/site-packages/resources/azure/database/database-for-postgresql-servers.png",
+			label="SAP ECC
+(Inventory, Sales,
+Master Data)",
+			pos="66.4,296.5",
+			shape=none];
+		"4d6ab10a03b14b48bb917550e06dec9a"	[height=2.7,
+			image="/Users/nandu/.pyenv/versions/3.10.14/lib/python3.10/site-packages/resources/azure/integration/api-management.png",
+			label="External APIs
+(Weather, Social,
+Economic)",
+			pos="66.4,548.5",
+			shape=none];
+	}
+	subgraph "cluster_Data Integration" {
+		graph [bb="282.8,1290.5,673.65,1495.5",
+			bgcolor="#F3E5F5",
+			fontcolor="#9C27B0",
+			fontname="Sans-Serif",
+			fontsize=14,
+			label="Data Integration",
+			labeljust=l,
+			lheight=0.21,
+			lp="338.8,1484",
+			lwidth=1.33,
+			pencolor="#AEB6BE",
+			penwidth=2.5,
+			rankdir=LR,
+			shape=box,
+			style=rounded
+		];
+		"015bba4832b84898947384542372cd34"	[height=2.3,
+			image="/Users/nandu/.pyenv/versions/3.10.14/lib/python3.10/site-packages/resources/azure/integration/service-bus.png",
+			label="Data Ingestion
+Pipeline",
+			pos="341.2,1381.5",
+			shape=none];
+		e9b16e360152464696f78824c84857d9	[height=2.3,
+			image="/Users/nandu/.pyenv/versions/3.10.14/lib/python3.10/site-packages/resources/azure/storage/data-lake-storage.png",
+			label="Delta Lake
+(Bronze/Silver/Gold)",
+			pos="615.25,1381.5",
+			shape=none];
+		"015bba4832b84898947384542372cd34" -> e9b16e360152464696f78824c84857d9	[color="#9C27B0",
+			dir=forward,
+			fontcolor="#2D3436",
+			fontname="Sans-Serif",
+			fontsize=13,
+			label="[3] store",
+			lp="478.23,1388.2",
+			pos="e,565.3,1381.5 391.46,1381.5 391.46,1381.5 553.79,1381.5 553.79,1381.5",
+			style=bold];
+	}
+	subgraph "cluster_Databricks Platform" {
+		graph [bb="274.8,286.5,2394.2,1282.5",
+			bgcolor="#FFF3E0",
+			fontcolor="#FF6F00",
+			fontname="Sans-Serif",
+			fontsize=14,
+			label="Databricks Platform",
+			labeljust=l,
+			lheight=0.21,
+			lp="342.05,1271",
+			lwidth=1.65,
+			pencolor="#AEB6BE",
+			penwidth=2.5,
+			rankdir=LR,
+			shape=box,
+			style=rounded
+		];
+		subgraph "cluster_Feature Engineering &
+Data Preparation" {
+			graph [bb="282.8,420.5,673.65,635.5",
+				bgcolor="#EBF3E7",
+				fontname="Sans-Serif",
+				fontsize=12,
+				label="Feature Engineering &
+Data Preparation",
+				labeljust=l,
+				lheight=0.35,
+				lp="351.18,618.75",
+				lwidth=1.68,
+				pencolor="#AEB6BE",
+				rankdir=LR,
+				shape=box,
+				style=rounded
+			];
+			a20d8db69be24a6292cf3b091a17b7d5	[height=2.3,
+				image="/Users/nandu/.pyenv/versions/3.10.14/lib/python3.10/site-packages/resources/onprem/analytics/spark.png",
+				label="Feature Store
+(Unified Features)",
+				pos="615.25,511.5",
+				shape=none];
+			ad3843f92d494236a20ce533ddc101c7	[height=2.3,
+				image="/Users/nandu/.pyenv/versions/3.10.14/lib/python3.10/site-packages/resources/azure/compute/function-apps.png",
+				label="Data Quality
+Validation",
+				pos="341.2,511.5",
+				shape=none];
+			ad3843f92d494236a20ce533ddc101c7 -> a20d8db69be24a6292cf3b091a17b7d5	[color="#FF6F00",
+				dir=forward,
+				fontcolor="#2D3436",
+				fontname="Sans-Serif",
+				fontsize=13,
+				label="[5] validate",
+				lp="478.23,518.25",
+				pos="e,565.3,511.5 391.46,511.5 391.46,511.5 553.79,511.5 553.79,511.5",
+				style=bold];
+		}
+		subgraph "cluster_Demand Forecasting
+Models" {
+			graph [bb="833.15,294.5,1222.5,538.5",
+				bgcolor="#EBF3E7",
+				fontname="Sans-Serif",
+				fontsize=12,
+				label="Demand Forecasting
+Models",
+				labeljust=l,
+				lheight=0.35,
+				lp="897.03,521.75",
+				lwidth=1.55,
+				pencolor="#AEB6BE",
+				rankdir=LR,
+				shape=box,
+				style=rounded
+			];
+			ca32a6a0cffe4b2d9d966c73eb9cf924	[height=2.7,
+				image="/Users/nandu/.pyenv/versions/3.10.14/lib/python3.10/site-packages/resources/azure/ml/machine-learning-service-workspaces.png",
+				label="ML Models
+(ARIMA, Prophet,
+LSTM, XGBoost)",
+				pos="891.55,399.5",
+				shape=none];
+			"544fb55db9a546b78ad15272f6827da1"	[height=2.3,
+				image="/Users/nandu/.pyenv/versions/3.10.14/lib/python3.10/site-packages/resources/azure/analytics/databricks.png",
+				label="MLflow
+Model Registry",
+				pos="1164.1,410.5",
+				shape=none];
+			ca32a6a0cffe4b2d9d966c73eb9cf924 -> "544fb55db9a546b78ad15272f6827da1"	[color="#FF6F00",
+				dir=forward,
+				fontcolor="#2D3436",
+				fontname="Sans-Serif",
+				fontsize=13,
+				label="[7] register",
+				lp="1027.8,410.25",
+				pos="e,1114.1,410.5 941.86,410.5 941.86,410.5 1102.6,410.5 1102.6,410.5",
+				style=bold];
+		}
+		subgraph "cluster_AI Agent
+(Mosaic AI Agent Framework)" {
+			graph [bb="1097.7,546.5,2386.2,1251.5",
+				bgcolor="#FCE4EC",
+				fontcolor="#E91E63",
+				fontname="Sans-Serif",
+				fontsize=14,
+				label="AI Agent
+(Mosaic AI Agent Framework)",
+				labeljust=l,
+				lheight=0.42,
+				lp="1195.7,1232.5",
+				lwidth=2.50,
+				pencolor="#AEB6BE",
+				penwidth=2.5,
+				rankdir=LR,
+				shape=box,
+				style=rounded
+			];
+			subgraph "cluster_AgentBricks Tools" {
+				graph [bb="1105.7,554.5,1222.5,1205.5",
+					bgcolor="#ECE8F6",
+					fontname="Sans-Serif",
+					fontsize=12,
+					label="AgentBricks Tools",
+					labeljust=l,
+					lheight=0.18,
+					lp="1161.7,1195.1",
+					lwidth=1.33,
+					pencolor="#AEB6BE",
+					rankdir=LR,
+					shape=box,
+					style=rounded
+				];
+				b925f8c24e9f40b898da81e6e788b807	[height=2.3,
+					image="/Users/nandu/.pyenv/versions/3.10.14/lib/python3.10/site-packages/resources/azure/storage/data-lake-storage.png",
+					label="Vector Search
+(Knowledge Base)",
+					pos="1164.1,645.5",
+					shape=none];
+				d7288f844e0045b2b9b3737822ba50fe	[height=2.3,
+					image="/Users/nandu/.pyenv/versions/3.10.14/lib/python3.10/site-packages/resources/azure/compute/function-apps.png",
+					label="UC Functions
+(Business Logic)",
+					pos="1164.1,869.5",
+					shape=none];
+				"6596e18edd814223ae182c39788a2daa"	[height=2.3,
+					image="/Users/nandu/.pyenv/versions/3.10.14/lib/python3.10/site-packages/resources/azure/integration/service-bus.png",
+					label="MCP Servers
+(External Tools)",
+					pos="1164.1,1093.5",
+					shape=none];
+			}
+			ea682fc251a6475b80df7112b682ac24	[height=2.3,
+				image="/Users/nandu/.pyenv/versions/3.10.14/lib/python3.10/site-packages/resources/azure/analytics/databricks.png",
+				label="Agent Bricks
+(Auto-Optimized)",
+				pos="1456.2,644.5",
+				shape=none];
+			c063191a37ba4e9fbff4b94683a1584f	[height=2.3,
+				image="/Users/nandu/.pyenv/versions/3.10.14/lib/python3.10/site-packages/resources/azure/analytics/databricks.png",
+				label="Reasoning Engine
+(Multi-Model)",
+				pos="1738.5,640.5",
+				shape=none];
+			ea682fc251a6475b80df7112b682ac24 -> c063191a37ba4e9fbff4b94683a1584f	[color="#E91E63",
+				dir=forward,
+				fontcolor="#2D3436",
+				fontname="Sans-Serif",
+				fontsize=13,
+				label="[12] reason",
+				lp="1597.3,647.25",
+				pos="e,1688.3,642.5 1506.3,642.5 1506.3,642.5 1676.8,642.5 1676.8,642.5",
+				style=bold];
+			b925f8c24e9f40b898da81e6e788b807 -> ea682fc251a6475b80df7112b682ac24	[color="#E91E63",
+				dir=forward,
+				fontcolor="#2D3436",
+				fontname="Sans-Serif",
+				fontsize=13,
+				label="[9] knowledge",
+				lp="1310.1,651.25",
+				pos="e,1406.1,645 1214.3,645 1214.3,645 1394.6,645 1394.6,645",
+				style=dotted];
+			d7288f844e0045b2b9b3737822ba50fe -> ea682fc251a6475b80df7112b682ac24	[color="#E91E63",
+				dir=forward,
+				fontcolor="#2D3436",
+				fontname="Sans-Serif",
+				fontsize=13,
+				label="[10] functions",
+				lp="1310.1,805.25",
+				pos="e,1438.9,727 1214.5,869.5 1293.8,869.5 1438.9,869.5 1438.9,869.5 1438.9,869.5 1438.9,738.52 1438.9,738.52",
+				style=dotted];
+			"6596e18edd814223ae182c39788a2daa" -> ea682fc251a6475b80df7112b682ac24	[color="#E91E63",
+				dir=forward,
+				fontcolor="#2D3436",
+				fontname="Sans-Serif",
+				fontsize=13,
+				label="[11] external",
+				lp="1310.1,994.25",
+				pos="e,1472.9,727.12 1214.4,1093.5 1301.9,1093.5 1472.9,1093.5 1472.9,1093.5 1472.9,1093.5 1472.9,738.63 1472.9,738.63",
+				style=dotted];
+			"4bebb60f0af4427fbc41d8ab26df1fb5"	[height=2.3,
+				image="/Users/nandu/.pyenv/versions/3.10.14/lib/python3.10/site-packages/resources/azure/compute/function-apps.png",
+				label="Optimization
+(Linear Programming)",
+				pos="2023,638.5",
+				shape=none];
+			c063191a37ba4e9fbff4b94683a1584f -> "4bebb60f0af4427fbc41d8ab26df1fb5"	[color="#E91E63",
+				dir=forward,
+				fontcolor="#2D3436",
+				fontname="Sans-Serif",
+				fontsize=13,
+				label="[13] optimize",
+				lp="1880.7,645.25",
+				pos="e,1972.8,639.5 1788.7,639.5 1788.7,639.5 1961.3,639.5 1961.3,639.5",
+				style=bold];
+			c064e64277e94bcc8b8b0014386e1b2b	[height=2.3,
+				image="/Users/nandu/.pyenv/versions/3.10.14/lib/python3.10/site-packages/resources/azure/integration/api-management.png",
+				label="Recommendation
+Engine",
+				pos="2327.8,637.5",
+				shape=none];
+			"4bebb60f0af4427fbc41d8ab26df1fb5" -> c064e64277e94bcc8b8b0014386e1b2b	[color="#E91E63",
+				dir=forward,
+				fontcolor="#2D3436",
+				fontname="Sans-Serif",
+				fontsize=13,
+				label="[14] recommend",
+				lp="2175.4,644.25",
+				pos="e,2277.6,638 2073.3,638 2073.3,638 2266.1,638 2266.1,638",
+				style=bold];
+		}
+		a20d8db69be24a6292cf3b091a17b7d5 -> ca32a6a0cffe4b2d9d966c73eb9cf924	[color="#FF6F00",
+			dir=forward,
+			fontcolor="#2D3436",
+			fontname="Sans-Serif",
+			fontsize=13,
+			label="[6] features",
+			lp="753.4,479.25",
+			pos="e,841.54,462.7 665.61,462.7 665.61,462.7 830.03,462.7 830.03,462.7",
+			style=bold];
+		"544fb55db9a546b78ad15272f6827da1" -> ea682fc251a6475b80df7112b682ac24	[color="#E91E63",
+			dir=forward,
+			fontcolor="#2D3436",
+			fontname="Sans-Serif",
+			fontsize=13,
+			label="[8] deploy",
+			lp="1310.1,497.25",
+			pos="e,1438.9,561.76 1214.5,413.5 1293.8,413.5 1438.9,413.5 1438.9,413.5 1438.9,413.5 1438.9,550.24 1438.9,550.24",
+			style=bold];
+	}
+	subgraph "cluster_Action & Oversight" {
+		graph [bb="2556.2,325.5,3230.9,530.5",
+			bgcolor="#E8F5E9",
+			fontcolor="#4CAF50",
+			fontname="Sans-Serif",
+			fontsize=14,
+			label="Action & Oversight",
+			labeljust=l,
+			lheight=0.21,
+			lp="2620.5,519",
+			lwidth=1.56,
+			pencolor="#AEB6BE",
+			penwidth=2.5,
+			rankdir=LR,
+			shape=box,
+			style=rounded
+		];
+		b0785aaa9a0845deb7e6e1588a8573e6	[height=2.3,
+			image="/Users/nandu/.pyenv/versions/3.10.14/lib/python3.10/site-packages/resources/azure/analytics/databricks.png",
+			label="Analytics
+Dashboard",
+			pos="2614.6,416.5",
+			shape=none];
+		"46695d0e39c7434ba4f2723bd7384263"	[height=2.3,
+			image="/Users/nandu/.pyenv/versions/3.10.14/lib/python3.10/site-packages/resources/azure/compute/function-apps.png",
+			label="Inventory
+Manager",
+			pos="2888.7,416.5",
+			shape=none];
+		b0785aaa9a0845deb7e6e1588a8573e6 -> "46695d0e39c7434ba4f2723bd7384263"	[color="#00BCD4",
+			dir=forward,
+			fontcolor="#2D3436",
+			fontname="Sans-Serif",
+			fontsize=13,
+			label="[16] review",
+			lp="2751.6,423.25",
+			pos="e,2838.7,416.5 2664.9,416.5 2664.9,416.5 2827.2,416.5 2827.2,416.5",
+			style=bold];
+		b43a358aa9ee42e7b7c0a4c83bc6fe64	[height=2.3,
+			image="/Users/nandu/.pyenv/versions/3.10.14/lib/python3.10/site-packages/resources/azure/integration/service-bus.png",
+			label="Execution
+Pipeline",
+			pos="3172.5,416.5",
+			shape=none];
+		"46695d0e39c7434ba4f2723bd7384263" -> b43a358aa9ee42e7b7c0a4c83bc6fe64	[color="#4CAF50",
+			dir=forward,
+			fontcolor="#2D3436",
+			fontname="Sans-Serif",
+			fontsize=13,
+			label="[17] approve",
+			lp="3030.6,423.25",
+			pos="e,3122.4,416.5 2938.7,416.5 2938.7,416.5 3110.9,416.5 3110.9,416.5",
+			style=bold];
+	}
+	c0fa9136fef844c7bb5ef135c41e0c6d -> "015bba4832b84898947384542372cd34"	[color="#4285F4",
+		dir=forward,
+		fontcolor="#2D3436",
+		fontname="Sans-Serif",
+		fontsize=13,
+		label="[1] extract",
+		lp="203.8,842.25",
+		pos="e,290.84,1381.5 116.41,332.77 155.71,332.77 203.85,332.77 203.85,332.77 203.85,332.77 203.85,1381.5 203.85,1381.5 203.85,1381.5 \
+279.32,1381.5 279.32,1381.5",
+		style=bold];
+	"097db646ea03409b8da24d28b33a4c1a"	[height=2.3,
+		image="/Users/nandu/.pyenv/versions/3.10.14/lib/python3.10/site-packages/resources/azure/integration/api-management.png",
+		label="Feedback &
+Continuous Learning",
+		pos="341.2,195.5",
+		shape=none];
+	c0fa9136fef844c7bb5ef135c41e0c6d -> "097db646ea03409b8da24d28b33a4c1a"	[color="#F44336",
+		dir=forward,
+		fontcolor="#2D3436",
+		fontname="Sans-Serif",
+		fontsize=13,
+		label="[19] results",
+		lp="203.8,296.25",
+		pos="e,291,238.8 116.48,238.8 116.48,238.8 279.48,238.8 279.48,238.8",
+		style=dashed];
+	"4d6ab10a03b14b48bb917550e06dec9a" -> "015bba4832b84898947384542372cd34"	[color="#4285F4",
+		dir=forward,
+		fontcolor="#2D3436",
+		fontname="Sans-Serif",
+		fontsize=13,
+		label="[2] ingest",
+		lp="203.8,971.25",
+		pos="e,324.85,1298.9 116.54,620 191.7,620 324.85,620 324.85,620 324.85,620 324.85,1287.4 324.85,1287.4",
+		style=bold];
+	e9b16e360152464696f78824c84857d9 -> ad3843f92d494236a20ce533ddc101c7	[color="#FF6F00",
+		dir=forward,
+		fontcolor="#2D3436",
+		fontname="Sans-Serif",
+		fontsize=13,
+		label="[4] load",
+		lp="478.23,953.25",
+		pos="e,357.85,594.07 614.85,1299 614.85,1266.8 614.85,1237.5 614.85,1237.5 614.85,1237.5 357.85,1237.5 357.85,1237.5 357.85,1237.5 357.85,\
+605.59 357.85,605.59",
+		style=bold];
+	c064e64277e94bcc8b8b0014386e1b2b -> b0785aaa9a0845deb7e6e1588a8573e6	[color="#4CAF50",
+		dir=forward,
+		fontcolor="#2D3436",
+		fontname="Sans-Serif",
+		fontsize=13,
+		label="[15] visualize",
+		lp="2471.2,533.25",
+		pos="e,2614.9,499.11 2378.1,637.5 2460.5,637.5 2614.9,637.5 2614.9,637.5 2614.9,637.5 2614.9,510.62 2614.9,510.62",
+		style=bold];
+	b43a358aa9ee42e7b7c0a4c83bc6fe64 -> c0fa9136fef844c7bb5ef135c41e0c6d	[color="#4CAF50",
+		dir=forward,
+		fontcolor="#2D3436",
+		fontname="Sans-Serif",
+		fontsize=13,
+		label="[18] execute",
+		lp="1597.3,31.25",
+		pos="e,116.77,290.3 3172.9,333.73 3172.9,309.94 3172.9,290.3 3172.9,290.3 3172.9,290.3 128.28,290.3 128.28,290.3",
+		style=bold];
+	"097db646ea03409b8da24d28b33a4c1a" -> a20d8db69be24a6292cf3b091a17b7d5	[color="#F44336",
+		dir=forward,
+		fontcolor="#2D3436",
+		fontname="Sans-Serif",
+		fontsize=13,
+		label=update,
+		lp="478.23,441.25",
+		pos="e,614.85,428.86 391.39,223.1 470.39,223.1 614.85,223.1 614.85,223.1 614.85,223.1 614.85,417.34 614.85,417.34",
+		style=dotted];
+	"097db646ea03409b8da24d28b33a4c1a" -> ca32a6a0cffe4b2d9d966c73eb9cf924	[color="#F44336",
+		dir=forward,
+		fontcolor="#2D3436",
+		fontname="Sans-Serif",
+		fontsize=13,
+		label="[20] retrain",
+		lp="615.25,348.25",
+		pos="e,841.22,363.23 340.85,277.89 340.85,320.31 340.85,363.23 340.85,363.23 340.85,363.23 829.71,363.23 829.71,363.23",
+		style=dashed];
+	"097db646ea03409b8da24d28b33a4c1a" -> ea682fc251a6475b80df7112b682ac24	[color="#F44336",
+		dir=forward,
+		fontcolor="#2D3436",
+		fontname="Sans-Serif",
+		fontsize=13,
+		label=insights,
+		lp="891.55,202.25",
+		pos="e,1472.9,561.75 391.29,167.9 610.29,167.9 1472.9,167.9 1472.9,167.9 1472.9,167.9 1472.9,550.24 1472.9,550.24",
+		style=dotted];
+}
