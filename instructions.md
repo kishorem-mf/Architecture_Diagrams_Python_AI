@@ -1,17 +1,11 @@
-I want the diagram to be little generic -
 
-Perform the following tasks
+consider the version d2c_inventory_ai_agents_v4.draw.io and not any other version for this exercise - 
 
-Abstract details in the feedback and continious learning
+I want a much abstract version of this -
 
-in data ingestion and integration
-
-dermand forecasting model blocck in databricks block
-
-feture engineering and data preperation blocck in databricks block
-
-Add little more details about tools and function used inside the AI Agent block. Showing the capabilite of Agent bricks in databricks.(refer some content like blogs from online if required to get more information on this)
-
-I want the flow to be represented from left to right.
-
-Follow the sequence number on direction links like in previous version
+AI Agent - reduce the details of it make some of it abstract
+remove the action and oversight block and replace it with a email notification to the inventory manager about the recommendation in adjustment
+inside Databricks keep the flow from left to right and clean
+this is an initial presentation to our client and we would not want to go into detailed level
+maintain sequence in the directions 
+left to right flow with remain
