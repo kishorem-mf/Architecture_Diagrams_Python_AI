@@ -1,3 +1,8 @@
+Here is the reference of low level diagram that I would required . I would need a low level reference architecuture of this-
+<img width="1314" height="661" alt="image" src="https://github.com/user-attachments/assets/e73f61ce-7792-4307-830f-155a76b4c94d" />
+
+
+
 machine learning is already applied on the data sample out put is the dataset from . so, databricks machinelearning is not required
 ![Tables available for agents](https://github.com/user-attachments/assets/388e7aef-dc2d-40c3-b6f9-14144251108c)
 
