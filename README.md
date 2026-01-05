@@ -38,5 +38,59 @@ LLM → User Notification (Steps 19-21):
 [19] response - LLM generates human-readable response sent back to Agent API
 [20] notify - Agent API triggers Notification Service to prepare email
 [21] email - Email notification with interpreted results delivered to Inventory Manager
-Would you like me to commit these descriptions to a documentation file or update the diagram script to include more detailed labels?
+
+---
+
+## V10 Architecture - D2C Inventory AI Agents (Databricks)
+Full Databricks-based agentic AI architecture with Mosaic AI Agent Framework.
+
+---
+
+## V11 Architecture - Hybrid Azure AI Foundry + Databricks
+
+### Overview
+V11 migrates the Agentic AI layer from Databricks Mosaic AI to **Azure AI Foundry** while keeping **Databricks for the data layer** (Delta Lake, SQL queries, Unity Catalog).
+
+### Key Changes from V10
+| Component | V10 (Databricks) | V11 (Hybrid) |
+|-----------|-----------------|--------------|
+| Agent Framework | Mosaic AI Agent Framework | Azure AI Foundry Prompt Flow |
+| LLM | Databricks Foundation Models | Azure OpenAI (GPT-4) |
+| Vector Search | Databricks Vector Search | Azure AI Search |
+| Data Layer | Databricks | Databricks (unchanged) |
+| Governance | Unity Catalog | Unity Catalog (unchanged) |
+
+### Dual Entry Points
+1. **Interactive (Real-time)**: Digital Assistant UI (Chatbot) → Agent API → Chat Response
+2. **Batch (Scheduled)**: Batch Scheduler (Azure Functions) → Agent API → Email Report
+
+### Architecture Flow
+```
+Data Layer (Databricks - unchanged):
+[1-7] SAP ECC → Data Factory → Delta Lake → Unity Catalog → Lakehouse
+
+Entry Points:
+[8a] Digital Assistant (Interactive) OR [8b] Batch Scheduler (Scheduled)
+[9] Agent API routes to Azure AI Foundry
+
+AI Processing (Azure AI Foundry):
+[10] Prompt Flow Orchestrator
+[11] GPT-4 Query Planner
+[12] Tool Executor Node
+[13] Databricks SQL Connector → Databricks SQL Warehouse
+[14] Azure AI Search (RAG)
+[15-17] Results aggregation
+[18] Azure OpenAI (GPT-4) response generation
+
+Response:
+[19] Agent API returns response
+[20] Chat Response (interactive) OR Email Report (batch)
+```
+
+### Reference Links
+- [Azure AI Foundry Documentation](https://learn.microsoft.com/en-us/azure/ai-foundry/)
+- [Prompt Flow](https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/prompt-flow)
+- [Azure OpenAI](https://learn.microsoft.com/en-us/azure/ai-services/openai/overview)
+- [Azure AI Search](https://learn.microsoft.com/en-us/azure/search/vector-search-overview)
+- [Databricks SQL](https://docs.databricks.com/en/sql/index.html)
 
