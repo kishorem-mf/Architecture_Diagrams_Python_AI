@@ -1,0 +1,373 @@
+digraph "D2C Inventory AI Agents V12
+Hybrid: Azure AI Foundry + Databricks (Abstracted)" {
+	graph [bb="0,0,2450.3,1111.3",
+		bgcolor=white,
+		compound=true,
+		dpi=150,
+		fontcolor="#2D3436",
+		fontname="Sans-Serif",
+		fontsize=12,
+		label="D2C Inventory AI Agents V12
+Hybrid: Azure AI Foundry + Databricks (Abstracted)",
+		lheight=0.35,
+		lp="1225.2,16.75",
+		lwidth=3.75,
+		nodesep=0.8,
+		pad=0.5,
+		rankdir=LR,
+		ranksep=1.0,
+		splines=ortho
+	];
+	node [fixedsize=true,
+		fontcolor="#2D3436",
+		fontname="Sans-Serif",
+		fontsize=13,
+		height=1.4,
+		imagescale=true,
+		label="\N",
+		labelloc=b,
+		shape=box,
+		style=rounded,
+		width=1.4
+	];
+	edge [color="#7B8894"];
+	subgraph "cluster_Data Sources" {
+		graph [bb="8,726.3,138.8,945.3",
+			bgcolor="#F3E5F5",
+			fontcolor="#7B1FA2",
+			fontname="Sans-Serif",
+			fontsize=14,
+			label="Data Sources",
+			labeljust=l,
+			lheight=0.21,
+			lp="56.875,933.8",
+			lwidth=1.14,
+			margin=15,
+			pencolor="#AEB6BE",
+			rankdir=LR,
+			shape=box,
+			style=rounded
+		];
+		"5c51cf821e84481898ef2578fc53b8bc"	[height=2.3,
+			image="/Users/nandu/Kishore/Projects/Architecture_Diagrams_Python_AI/Arch_Diagrams/arch_venv/lib/python3.10/site-packages/resources/onprem/\
+database/postgresql.png",
+			label="SAP ECC
+(Inventory, Sales)",
+			pos="73.4,824.3",
+			shape=none];
+	}
+	subgraph "cluster_Data Integration" {
+		graph [bb="240.05,741.3,370.85,930.3",
+			bgcolor="#FCE4EC",
+			fontcolor="#C2185B",
+			fontname="Sans-Serif",
+			fontsize=14,
+			label="Data Integration",
+			labeljust=l,
+			lheight=0.21,
+			lp="296.05,918.8",
+			lwidth=1.33,
+			margin=15,
+			pencolor="#AEB6BE",
+			rankdir=LR,
+			shape=box,
+			style=rounded
+		];
+		e7ac9bec8ee0459db5f0eb97cabb8982	[height=1.9,
+			image="/Users/nandu/Kishore/Projects/Architecture_Diagrams_Python_AI/Arch_Diagrams/arch_venv/lib/python3.10/site-packages/resources/azure/\
+analytics/synapse-analytics.png",
+			label="Azure Data Factory",
+			pos="305.45,824.3",
+			shape=none];
+	}
+	subgraph "cluster_Databricks Platform
+(Data Layer)" {
+		graph [bb="462.6,650.3,1061.5,1088.3",
+			bgcolor="#FFF3E0",
+			fontcolor="#FF6F00",
+			fontname="Sans-Serif",
+			fontsize=14,
+			label="Databricks Platform
+(Data Layer)",
+			labeljust=l,
+			lheight=0.42,
+			lp="529.85,1069.3",
+			lwidth=1.65,
+			margin=20,
+			pencolor="#AEB6BE",
+			rankdir=LR,
+			shape=box,
+			style=rounded
+		];
+		"9b4ea6e989514c03af9b04f786ea3db5"	[height=1.9,
+			image="/Users/nandu/Kishore/Projects/Architecture_Diagrams_Python_AI/Arch_Diagrams/arch_venv/lib/python3.10/site-packages/resources/azure/\
+database/data-lake.png",
+			label="Delta Lake",
+			pos="533,824.3",
+			shape=none];
+		"74dec24a5b1347d1bb640362e11a54ce"	[height=2.3,
+			image="/Users/nandu/Kishore/Projects/Architecture_Diagrams_Python_AI/Arch_Diagrams/arch_venv/lib/python3.10/site-packages/resources/generic/\
+storage/storage.png",
+			label="Lakehouse
+Tables",
+			pos="765.8,753.3",
+			shape=none];
+		"9b4ea6e989514c03af9b04f786ea3db5" -> "74dec24a5b1347d1bb640362e11a54ce"	[color=orange,
+			dir=forward,
+			fontcolor="#2D3436",
+			fontname="Sans-Serif",
+			fontsize=13,
+			label="[3] store",
+			lp="649.4,793.05",
+			pos="e,715.66,796 583.23,796 583.23,796 704.15,796 704.15,796"];
+		f193d70da12043d88d9197f0f5107b12	[height=1.9,
+			image="/Users/nandu/Kishore/Projects/Architecture_Diagrams_Python_AI/Arch_Diagrams/arch_venv/lib/python3.10/site-packages/resources/azure/\
+security/key-vaults.png",
+			label="Unity Catalog",
+			pos="765.8,962.3",
+			shape=none];
+		"9b4ea6e989514c03af9b04f786ea3db5" -> f193d70da12043d88d9197f0f5107b12	[color=orange,
+			dir=forward,
+			fontcolor="#2D3436",
+			fontname="Sans-Serif",
+			fontsize=13,
+			label="[4] govern",
+			lp="649.4,936.05",
+			pos="e,765.3,893.97 583.12,886.1 651.41,886.1 765.3,886.1 765.3,886.1 765.3,886.1 765.3,886.89 765.3,886.89"];
+		e7b2cef95bc8422ebe71f416721cb7f3	[height=1.9,
+			image="/Users/nandu/Kishore/Projects/Architecture_Diagrams_Python_AI/Arch_Diagrams/arch_venv/lib/python3.10/site-packages/resources/azure/\
+analytics/databricks.png",
+			label="SQL Warehouse",
+			pos="991.1,753.3",
+			shape=none];
+		"74dec24a5b1347d1bb640362e11a54ce" -> e7b2cef95bc8422ebe71f416721cb7f3	[color=orange,
+			dir=forward,
+			fontcolor="#2D3436",
+			fontname="Sans-Serif",
+			fontsize=13,
+			label="[5] query",
+			lp="878.45,760.05",
+			pos="e,940.97,753.3 816.08,753.3 816.08,753.3 929.46,753.3 929.46,753.3",
+			style=dashed];
+	}
+	subgraph "cluster_Azure AI Foundry
+(Agentic AI Layer)" {
+		graph [bb="1138.5,665.3,1740.4,1103.3",
+			bgcolor="#E3F2FD",
+			fontcolor="#0078D4",
+			fontname="Sans-Serif",
+			fontsize=14,
+			label="Azure AI Foundry
+(Agentic AI Layer)",
+			labeljust=l,
+			lheight=0.42,
+			lp="1200.5,1084.3",
+			lwidth=1.50,
+			margin=20,
+			pencolor="#AEB6BE",
+			rankdir=LR,
+			shape=box,
+			style=rounded
+		];
+		f3c132690d08455ba6fe32eb872ba52a	[height=2.3,
+			image="/Users/nandu/Kishore/Projects/Architecture_Diagrams_Python_AI/Arch_Diagrams/arch_venv/lib/python3.10/site-packages/resources/azure/\
+ml/machine-learning-service-workspaces.png",
+			label="Agent Framework
+(Prompt Flow)",
+			pos="1429,768.3",
+			shape=none];
+		"0ec7c00e9e2a448e9bc3d7642fe6c093"	[height=2.3,
+			image="/Users/nandu/Kishore/Projects/Architecture_Diagrams_Python_AI/Arch_Diagrams/arch_venv/lib/python3.10/site-packages/resources/azure/\
+ml/machine-learning-service-workspaces.png",
+			label="Azure OpenAI
+(GPT-4)",
+			pos="1670,768.3",
+			shape=none];
+		f3c132690d08455ba6fe32eb872ba52a -> "0ec7c00e9e2a448e9bc3d7642fe6c093"	[color=blue,
+			dir=forward,
+			fontcolor="#2D3436",
+			fontname="Sans-Serif",
+			fontsize=13,
+			label="[9] interpret",
+			lp="1549.5,775.05",
+			pos="e,1619.8,768.3 1479.2,768.3 1479.2,768.3 1608.3,768.3 1608.3,768.3"];
+		"43e7e607dc774ad1b08c142f8694b89a"	[height=1.9,
+			image="/Users/nandu/Kishore/Projects/Architecture_Diagrams_Python_AI/Arch_Diagrams/arch_venv/lib/python3.10/site-packages/resources/azure/\
+analytics/databricks.png",
+			label="SQL Connector",
+			pos="1208.9,753.3",
+			shape=none];
+		"43e7e607dc774ad1b08c142f8694b89a" -> f3c132690d08455ba6fe32eb872ba52a	[color=blue,
+			dir=forward,
+			fontcolor="#2D3436",
+			fontname="Sans-Serif",
+			fontsize=13,
+			label="[7]",
+			lp="1318.9,767.05",
+			pos="e,1378.6,753.6 1259.1,753.6 1259.1,753.6 1367.1,753.6 1367.1,753.6"];
+		b58e37dd04874a14b50fc87baf4d686b	[height=2.3,
+			image="/Users/nandu/Kishore/Projects/Architecture_Diagrams_Python_AI/Arch_Diagrams/arch_venv/lib/python3.10/site-packages/resources/azure/\
+ml/cognitive-services.png",
+			label="AI Search
+(RAG)",
+			pos="1208.9,962.3",
+			shape=none];
+		b58e37dd04874a14b50fc87baf4d686b -> f3c132690d08455ba6fe32eb872ba52a	[color=blue,
+			dir=forward,
+			fontcolor="#2D3436",
+			fontname="Sans-Serif",
+			fontsize=13,
+			label="[8] docs",
+			lp="1318.9,910.05",
+			pos="e,1378.6,843.6 1209.3,879.54 1209.3,859.43 1209.3,843.6 1209.3,843.6 1209.3,843.6 1367,843.6 1367,843.6"];
+	}
+	subgraph "cluster_Application Layer" {
+		graph [bb="1604.6,214.3,2234.8,657.3",
+			bgcolor="#E8F5E9",
+			fontcolor="#2E7D32",
+			fontname="Sans-Serif",
+			fontsize=14,
+			label="Application Layer",
+			labeljust=l,
+			lheight=0.21,
+			lp="1664.4,645.8",
+			lwidth=1.44,
+			margin=15,
+			pencolor="#AEB6BE",
+			rankdir=LR,
+			shape=box,
+			style=rounded
+		];
+		"639ce1d7b49d4547a454db0f40a0adc5"	[height=1.9,
+			image="/Users/nandu/Kishore/Projects/Architecture_Diagrams_Python_AI/Arch_Diagrams/arch_venv/lib/python3.10/site-packages/resources/azure/\
+integration/api-management.png",
+			label="Agent API",
+			pos="1924.6,480.3",
+			shape=none];
+		dc9800d6792d4c97ab734cbb0bd8ea2c	[height=2.3,
+			image="/Users/nandu/Kishore/Projects/Architecture_Diagrams_Python_AI/Arch_Diagrams/arch_venv/lib/python3.10/site-packages/resources/onprem/\
+client/users.png",
+			label="Digital
+Assistant",
+			pos="2169.4,312.3",
+			shape=none];
+		"639ce1d7b49d4547a454db0f40a0adc5" -> dc9800d6792d4c97ab734cbb0bd8ea2c	[color=green,
+			dir=forward,
+			fontcolor="#2D3436",
+			fontname="Sans-Serif",
+			fontsize=13,
+			label="[13]",
+			lp="2047,328.05",
+			pos="e,2186.3,395.1 1974.7,439.63 2050.7,439.63 2186.3,439.63 2186.3,439.63 2186.3,439.63 2186.3,406.61 2186.3,406.61"];
+		c4c8cef3a98245379e3b7415fed8dca9	[height=2.3,
+			image="/Users/nandu/Kishore/Projects/Architecture_Diagrams_Python_AI/Arch_Diagrams/arch_venv/lib/python3.10/site-packages/resources/azure/\
+integration/logic-apps.png",
+			label="Email
+Service",
+			pos="2169.4,536.3",
+			shape=none];
+		"639ce1d7b49d4547a454db0f40a0adc5" -> c4c8cef3a98245379e3b7415fed8dca9	[color=green,
+			dir=forward,
+			fontcolor="#2D3436",
+			fontname="Sans-Serif",
+			fontsize=13,
+			label="[16] insights",
+			lp="2047,534.05",
+			pos="e,2119.3,501.1 1974.7,501.1 1974.7,501.1 2107.8,501.1 2107.8,501.1",
+			style=dashed];
+		dc9800d6792d4c97ab734cbb0bd8ea2c -> "639ce1d7b49d4547a454db0f40a0adc5"	[color=green,
+			dir=forward,
+			fontcolor="#2D3436",
+			fontname="Sans-Serif",
+			fontsize=13,
+			label="[12]",
+			lp="2047,440.05",
+			pos="e,1974.8,425.77 2152.3,395.06 2152.3,412.51 2152.3,425.77 2152.3,425.77 2152.3,425.77 1986.3,425.77 1986.3,425.77"];
+		"10ad6ab4b13346da8dc10b78786f11c6"	[height=2.3,
+			image="/Users/nandu/Kishore/Projects/Architecture_Diagrams_Python_AI/Arch_Diagrams/arch_venv/lib/python3.10/site-packages/resources/azure/\
+compute/function-apps.png",
+			label="Batch
+Scheduler",
+			pos="1670,480.3",
+			shape=none];
+		"10ad6ab4b13346da8dc10b78786f11c6" -> "639ce1d7b49d4547a454db0f40a0adc5"	[color=green,
+			dir=forward,
+			fontcolor="#2D3436",
+			fontname="Sans-Serif",
+			fontsize=13,
+			label="[15] batch",
+			lp="1797.3,487.05",
+			pos="e,1874.4,480.3 1720.3,480.3 1720.3,480.3 1862.9,480.3 1862.9,480.3",
+			style=dashed];
+	}
+	"5c51cf821e84481898ef2578fc53b8bc" -> e7ac9bec8ee0459db5f0eb97cabb8982	[color=purple,
+		dir=forward,
+		fontcolor="#2D3436",
+		fontname="Sans-Serif",
+		fontsize=13,
+		label="[1] extract",
+		lp="189.43,831.05",
+		pos="e,255.2,824.3 123.75,824.3 123.75,824.3 243.68,824.3 243.68,824.3"];
+	e7ac9bec8ee0459db5f0eb97cabb8982 -> "9b4ea6e989514c03af9b04f786ea3db5"	[color=purple,
+		dir=forward,
+		fontcolor="#2D3436",
+		fontname="Sans-Serif",
+		fontsize=13,
+		label="[2] ingest",
+		lp="419.23,831.05",
+		pos="e,482.91,824.3 355.67,824.3 355.67,824.3 471.4,824.3 471.4,824.3"];
+	e7b2cef95bc8422ebe71f416721cb7f3 -> "43e7e607dc774ad1b08c142f8694b89a"	[color=blue,
+		dir=forward,
+		fontcolor="#2D3436",
+		fontname="Sans-Serif",
+		fontsize=13,
+		label="[6] data",
+		lp="1100,760.05",
+		pos="e,1158.5,753.3 1041.3,753.3 1041.3,753.3 1147,753.3 1147,753.3"];
+	"0ec7c00e9e2a448e9bc3d7642fe6c093" -> "639ce1d7b49d4547a454db0f40a0adc5"	[color=blue,
+		dir=forward,
+		fontcolor="#2D3436",
+		fontname="Sans-Serif",
+		fontsize=13,
+		label="[10] response",
+		lp="1797.3,715.05",
+		pos="e,1924.3,548.55 1720.2,768.3 1794.4,768.3 1924.3,768.3 1924.3,768.3 1924.3,768.3 1924.3,560.07 1924.3,560.07"];
+	"5bf41f16612f4ad3bc00125ac3230b9e"	[height=2.3,
+		image="/Users/nandu/Kishore/Projects/Architecture_Diagrams_Python_AI/Arch_Diagrams/arch_venv/lib/python3.10/site-packages/resources/onprem/\
+client/users.png",
+		label="Business User
+(Inventory Manager)",
+		pos="1924.6,116.3",
+		shape=none];
+	dc9800d6792d4c97ab734cbb0bd8ea2c -> "5bf41f16612f4ad3bc00125ac3230b9e"	[color=green,
+		dir=forward,
+		fontcolor="#2D3436",
+		fontname="Sans-Serif",
+		fontsize=13,
+		label="[14] display",
+		lp="2047,231.05",
+		pos="e,1907.3,198.93 2119.1,339.9 2043,339.9 1907.3,339.9 1907.3,339.9 1907.3,339.9 1907.3,210.44 1907.3,210.44"];
+	a9671d435ad0421cbb5d48e5129b47f6	[height=1.9,
+		image="/Users/nandu/Kishore/Projects/Architecture_Diagrams_Python_AI/Arch_Diagrams/arch_venv/lib/python3.10/site-packages/resources/saas/\
+chat/slack.png",
+		label="Team Email",
+		pos="2399.9,536.3",
+		shape=none];
+	c4c8cef3a98245379e3b7415fed8dca9 -> a9671d435ad0421cbb5d48e5129b47f6	[color=green,
+		dir=forward,
+		fontcolor="#2D3436",
+		fontname="Sans-Serif",
+		fontsize=13,
+		label="[17] email",
+		lp="2284.6,543.05",
+		pos="e,2349.7,536.3 2219.7,536.3 2219.7,536.3 2338.2,536.3 2338.2,536.3",
+		style=dashed];
+	"5bf41f16612f4ad3bc00125ac3230b9e" -> dc9800d6792d4c97ab734cbb0bd8ea2c	[color=green,
+		dir=forward,
+		fontcolor="#2D3436",
+		fontname="Sans-Serif",
+		fontsize=13,
+		label="[11] query",
+		lp="2047,144.05",
+		pos="e,2119,284.7 1941.3,199.02 1941.3,241.61 1941.3,284.7 1941.3,284.7 1941.3,284.7 2107.5,284.7 2107.5,284.7"];
+}
