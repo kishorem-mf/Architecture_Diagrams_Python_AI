@@ -1,0 +1,586 @@
+digraph "Inventory Risk ML Pipeline Architecture" {
+	graph [bb="0,0,2468.1,1928",
+		bgcolor=white,
+		compound=true,
+		fontcolor="#2D3436",
+		fontname="Sans-Serif",
+		fontsize=14,
+		label="Inventory Risk ML Pipeline Architecture",
+		lheight=0.21,
+		lp="1234,11.5",
+		lwidth=3.28,
+		nodesep=0.8,
+		pad=0.5,
+		rankdir=LR,
+		ranksep=2.0,
+		splines=polyline
+	];
+	node [fixedsize=true,
+		fontcolor="#2D3436",
+		fontname="Sans-Serif",
+		fontsize=13,
+		height=1.4,
+		imagescale=true,
+		label="\N",
+		labelloc=b,
+		shape=box,
+		style=rounded,
+		width=1.4
+	];
+	edge [color="#7B8894"];
+	subgraph "cluster_1. DATA SOURCES" {
+		graph [bb="0,31,243.75,1656",
+			bgcolor="#FFF9C4",
+			fontname="Sans-Serif",
+			fontsize=14,
+			label="1. DATA SOURCES",
+			labeljust=l,
+			lheight=0.21,
+			lp="68.375,1644.5",
+			lwidth=1.68,
+			margin=25,
+			pencolor="#AEB6BE",
+			rankdir=LR,
+			shape=box,
+			style=rounded
+		];
+		subgraph "cluster_SAP BDC (Business Data Cloud)" {
+			graph [bb="25,56,218.75,1608",
+				bgcolor="#FFF59D",
+				fontname="Sans-Serif",
+				fontsize=12,
+				label="SAP BDC (Business Data Cloud)",
+				labeljust=l,
+				lheight=0.18,
+				lp="121.88,1597.6",
+				lwidth=2.47,
+				margin=15,
+				pencolor="#AEB6BE",
+				rankdir=LR,
+				shape=box,
+				style=rounded
+			];
+			"40a8a0cd607f4182a000d5b792b48547"	[height=1.9,
+				image="/Users/nandu/Kishore/Projects/Architecture_Diagrams_Python_AI/Arch_Diagrams/arch_venv/lib/python3.10/site-packages/resources/onprem/\
+database/mssql.png",
+				label=stock_status_v2,
+				pos="121.38,1504",
+				shape=none];
+			"65cb1491ef37494d8d791137eaaa4c0a"	[height=1.9,
+				image="/Users/nandu/Kishore/Projects/Architecture_Diagrams_Python_AI/Arch_Diagrams/arch_venv/lib/python3.10/site-packages/resources/onprem/\
+database/mssql.png",
+				label=review_dc,
+				pos="121.38,1309",
+				shape=none];
+			"53a6a616285848a4988617b9e07671d8"	[height=1.9,
+				image="/Users/nandu/Kishore/Projects/Architecture_Diagrams_Python_AI/Arch_Diagrams/arch_venv/lib/python3.10/site-packages/resources/onprem/\
+database/mssql.png",
+				label=review_plant,
+				pos="121.38,1114",
+				shape=none];
+			"370cb11d3fc94ef8850bf2787462d246"	[height=1.9,
+				image="/Users/nandu/Kishore/Projects/Architecture_Diagrams_Python_AI/Arch_Diagrams/arch_venv/lib/python3.10/site-packages/resources/onprem/\
+database/mssql.png",
+				label=review_vendors,
+				pos="121.38,919",
+				shape=none];
+			"2c037ef7492d4343a38c0de5815df150"	[height=1.9,
+				image="/Users/nandu/Kishore/Projects/Architecture_Diagrams_Python_AI/Arch_Diagrams/arch_venv/lib/python3.10/site-packages/resources/onprem/\
+database/mssql.png",
+				label=location_source,
+				pos="121.38,724",
+				shape=none];
+			fb91362d1463465fbb2011abb068cc6d	[height=1.9,
+				image="/Users/nandu/Kishore/Projects/Architecture_Diagrams_Python_AI/Arch_Diagrams/arch_venv/lib/python3.10/site-packages/resources/onprem/\
+database/mssql.png",
+				label=production_source,
+				pos="121.38,529",
+				shape=none];
+			"370f460666da4b16987e2c1dfb91296c"	[height=1.9,
+				image="/Users/nandu/Kishore/Projects/Architecture_Diagrams_Python_AI/Arch_Diagrams/arch_venv/lib/python3.10/site-packages/resources/onprem/\
+database/mssql.png",
+				label=lag_1_review_dc,
+				pos="121.38,334",
+				shape=none];
+			c1c264f10e294ea4b58bd3471851f8db	[height=1.9,
+				image="/Users/nandu/Kishore/Projects/Architecture_Diagrams_Python_AI/Arch_Diagrams/arch_venv/lib/python3.10/site-packages/resources/onprem/\
+database/mssql.png",
+				label=lag_1_review_plant,
+				pos="121.38,139",
+				shape=none];
+		}
+	}
+	subgraph "cluster_2. SAP DATABRICKS (ML Platform)" {
+		graph [bb="681.55,698,1108.2,1920",
+			bgcolor="#FFF3E0",
+			fontname="Sans-Serif",
+			fontsize=14,
+			label="2. SAP DATABRICKS (ML Platform)",
+			labeljust=l,
+			lheight=0.21,
+			lp="798.67,1908.5",
+			lwidth=3.03,
+			margin=25,
+			pencolor="#AEB6BE",
+			rankdir=LR,
+			shape=box,
+			style=rounded
+		];
+		subgraph "cluster_FEATURE STORE" {
+			graph [bb="706.55,723,1083.2,940",
+				bgcolor="#E8F5E9",
+				fontname="Sans-Serif",
+				fontsize=12,
+				label="FEATURE STORE",
+				labeljust=l,
+				lheight=0.18,
+				lp="765.17,929.62",
+				lwidth=1.41,
+				margin=15,
+				pencolor="#AEB6BE",
+				rankdir=LR,
+				shape=box,
+				style=rounded
+			];
+			"4674d8d0f792441e906817dcf5437dc8"	[height=2.3,
+				image="/Users/nandu/Kishore/Projects/Architecture_Diagrams_Python_AI/Arch_Diagrams/arch_venv/lib/python3.10/site-packages/resources/azure/\
+storage/data-lake-storage.png",
+				label="ml_features
+(Delta Table)",
+				pos="771.95,821",
+				shape=none];
+			f9d12d1501184b15bb292af09feb6aaf	[height=2.3,
+				image="/Users/nandu/Kishore/Projects/Architecture_Diagrams_Python_AI/Arch_Diagrams/arch_venv/lib/python3.10/site-packages/resources/onprem/\
+compute/server.png",
+				label="Daily Refresh
+(22 Features)",
+				pos="1017.8,821",
+				shape=none];
+			"4674d8d0f792441e906817dcf5437dc8" -> f9d12d1501184b15bb292af09feb6aaf	[color=gray,
+				dir=forward,
+				fontcolor="#2D3436",
+				fontname="Sans-Serif",
+				fontsize=13,
+				pos="e,967.49,821 822.29,821 860.95,821 914.93,821 956.2,821",
+				style=dotted];
+		}
+		subgraph "cluster_MODEL REGISTRY" {
+			graph [bb="706.55,965,837.35,1630",
+				bgcolor="#E3F2FD",
+				fontname="Sans-Serif",
+				fontsize=12,
+				label="MODEL REGISTRY",
+				labeljust=l,
+				lheight=0.18,
+				lp="768.17,1619.6",
+				lwidth=1.49,
+				margin=15,
+				pencolor="#AEB6BE",
+				rankdir=LR,
+				shape=box,
+				style=rounded
+			];
+			"6e8de17e7eec47be92a9ed3a9268e613"	[height=2.3,
+				image="/Users/nandu/Kishore/Projects/Architecture_Diagrams_Python_AI/Arch_Diagrams/arch_venv/lib/python3.10/site-packages/resources/azure/\
+ml/machine-learning-service-workspaces.png",
+				label="Risk Classifier
+(XGBoost)",
+				pos="771.95,1063",
+				shape=none];
+			"315860be7013415c99f5799248cf351d"	[height=2.3,
+				image="/Users/nandu/Kishore/Projects/Architecture_Diagrams_Python_AI/Arch_Diagrams/arch_venv/lib/python3.10/site-packages/resources/azure/\
+ml/machine-learning-service-workspaces.png",
+				label="Early Warning
+(LSTM)",
+				pos="771.95,1287",
+				shape=none];
+			"34e3bd64ce2144ffa19860c0e9dc75b2"	[height=2.3,
+				image="/Users/nandu/Kishore/Projects/Architecture_Diagrams_Python_AI/Arch_Diagrams/arch_venv/lib/python3.10/site-packages/resources/azure/\
+ml/machine-learning-service-workspaces.png",
+				label="Severity Scorer
+(LightGBM)",
+				pos="771.95,1511",
+				shape=none];
+		}
+		subgraph "cluster_MODEL SERVING" {
+			graph [bb="706.55,1655,1083.2,1872",
+				bgcolor="#F3E5F5",
+				fontname="Sans-Serif",
+				fontsize=12,
+				label="MODEL SERVING",
+				labeljust=l,
+				lheight=0.18,
+				lp="764.42,1861.6",
+				lwidth=1.39,
+				margin=15,
+				pencolor="#AEB6BE",
+				rankdir=LR,
+				shape=box,
+				style=rounded
+			];
+			"21da5cf083c946d2a805f767a4bb42c6"	[height=2.3,
+				image="/Users/nandu/Kishore/Projects/Architecture_Diagrams_Python_AI/Arch_Diagrams/arch_venv/lib/python3.10/site-packages/resources/azure/\
+compute/function-apps.png",
+				label="REST API
+(/invocations)",
+				pos="771.95,1753",
+				shape=none];
+			"637dcb7c014d482abf9e89800918cf57"	[height=2.3,
+				image="/Users/nandu/Kishore/Projects/Architecture_Diagrams_Python_AI/Arch_Diagrams/arch_venv/lib/python3.10/site-packages/resources/onprem/\
+compute/server.png",
+				label="Low Latency
+(<500ms)",
+				pos="1017.8,1753",
+				shape=none];
+			"21da5cf083c946d2a805f767a4bb42c6" -> "637dcb7c014d482abf9e89800918cf57"	[color=gray,
+				dir=forward,
+				fontcolor="#2D3436",
+				fontname="Sans-Serif",
+				fontsize=13,
+				pos="e,967.49,1753 822.29,1753 860.95,1753 914.93,1753 956.2,1753",
+				style=dotted];
+		}
+		"0af2be479a5343928ba37bac5fb33144"	[height=2.3,
+			image="/Users/nandu/Kishore/Projects/Architecture_Diagrams_Python_AI/Arch_Diagrams/arch_venv/lib/python3.10/site-packages/resources/onprem/\
+analytics/spark.png",
+			label="BATCH SCORING JOB
+(Daily 3 AM UTC)",
+			pos="1017.8,1136",
+			shape=none];
+		"4674d8d0f792441e906817dcf5437dc8" -> "0af2be479a5343928ba37bac5fb33144"	[color=gray,
+			dir=forward,
+			fontcolor="#2D3436",
+			fontname="Sans-Serif",
+			fontsize=13,
+			pos="e,967.49,1072.3 822.29,884.74 862.35,936.51 918.87,1009.5 960.65,1063.5",
+			style=dotted];
+		"6e8de17e7eec47be92a9ed3a9268e613" -> "0af2be479a5343928ba37bac5fb33144"	[color=gray,
+			dir=forward,
+			fontcolor="#2D3436",
+			fontname="Sans-Serif",
+			fontsize=13,
+			pos="e,967.49,1121.2 822.29,1077.8 861.03,1089.4 915.16,1105.6 956.47,1118",
+			style=dotted];
+		"315860be7013415c99f5799248cf351d" -> "0af2be479a5343928ba37bac5fb33144"	[color=gray,
+			dir=forward,
+			fontcolor="#2D3436",
+			fontname="Sans-Serif",
+			fontsize=13,
+			pos="e,967.49,1166.5 822.29,1256.4 861.45,1232.2 916.31,1198.2 957.79,1172.5",
+			style=dotted];
+		"34e3bd64ce2144ffa19860c0e9dc75b2" -> "0af2be479a5343928ba37bac5fb33144"	[color=gray,
+			dir=forward,
+			fontcolor="#2D3436",
+			fontname="Sans-Serif",
+			fontsize=13,
+			pos="e,967.49,1211.8 822.29,1435.1 862.6,1373.1 919.57,1285.5 961.42,1221.1",
+			style=dotted];
+	}
+	subgraph "cluster_3. SAP BDC (ML Results)" {
+		graph [bb="1672,705,1896.2,1695",
+			bgcolor="#E8F5E9",
+			fontname="Sans-Serif",
+			fontsize=14,
+			label="3. SAP BDC (ML Results)",
+			labeljust=l,
+			lheight=0.21,
+			lp="1757.6,1683.5",
+			lwidth=2.16,
+			margin=25,
+			pencolor="#AEB6BE",
+			rankdir=LR,
+			shape=box,
+			style=rounded
+		];
+		subgraph "cluster_ml_predictions (Data Product)" {
+			graph [bb="1697,730,1871.2,1647",
+				bgcolor="#FFF59D",
+				fontname="Sans-Serif",
+				fontsize=12,
+				label="ml_predictions (Data Product)",
+				labeljust=l,
+				lheight=0.18,
+				lp="1784.1,1636.6",
+				lwidth=2.20,
+				margin=15,
+				pencolor="#AEB6BE",
+				rankdir=LR,
+				shape=box,
+				style=rounded
+			];
+			a6a51a15893647eeaf2978580599b70b	[height=2.7,
+				image="/Users/nandu/Kishore/Projects/Architecture_Diagrams_Python_AI/Arch_Diagrams/arch_venv/lib/python3.10/site-packages/resources/azure/\
+database/database-for-postgresql-servers.png",
+				label="Risk Classification
+(normal/understock/
+overstock)",
+				pos="1783.6,1290",
+				shape=none];
+			"87830d3f5abb4e698eb2f800450e37ba"	[height=2.3,
+				image="/Users/nandu/Kishore/Projects/Architecture_Diagrams_Python_AI/Arch_Diagrams/arch_venv/lib/python3.10/site-packages/resources/azure/\
+database/database-for-postgresql-servers.png",
+				label="Severity Score
+(0-100)",
+				pos="1783.6,1052",
+				shape=none];
+			"8676dfe0ab60415e96494404423b0bf7"	[height=2.3,
+				image="/Users/nandu/Kishore/Projects/Architecture_Diagrams_Python_AI/Arch_Diagrams/arch_venv/lib/python3.10/site-packages/resources/azure/\
+database/database-for-postgresql-servers.png",
+				label="Early Warning
+(weeks ahead)",
+				pos="1783.6,828",
+				shape=none];
+			"5f6323c5583e43f8b423d169c66cbb66"	[height=2.3,
+				image="/Users/nandu/Kishore/Projects/Architecture_Diagrams_Python_AI/Arch_Diagrams/arch_venv/lib/python3.10/site-packages/resources/azure/\
+database/database-for-postgresql-servers.png",
+				label="SHAP Explainability
+(top 3 factors)",
+				pos="1783.6,1528",
+				shape=none];
+		}
+	}
+	subgraph "cluster_4. CONSUMERS" {
+		graph [bb="2309.2,609,2460.1,1296",
+			bgcolor="#E3F2FD",
+			fontname="Sans-Serif",
+			fontsize=14,
+			label="4. CONSUMERS",
+			labeljust=l,
+			lheight=0.21,
+			lp="2369.4,1284.5",
+			lwidth=1.45,
+			margin=25,
+			pencolor="#AEB6BE",
+			rankdir=LR,
+			shape=box,
+			style=rounded
+		];
+		d814b365bfff4d899b5493a47db5620a	[height=2.3,
+			image="/Users/nandu/Kishore/Projects/Architecture_Diagrams_Python_AI/Arch_Diagrams/arch_venv/lib/python3.10/site-packages/resources/azure/\
+web/app-services.png",
+			label="SAP BTP App
+(Flask API + Agents)",
+			pos="2384.7,717",
+			shape=none];
+		"52b85ff47117498c846a0c9fe19e5652"	[height=2.3,
+			image="/Users/nandu/Kishore/Projects/Architecture_Diagrams_Python_AI/Arch_Diagrams/arch_venv/lib/python3.10/site-packages/resources/onprem/\
+analytics/powerbi.png",
+			label="SAP Analytics Cloud
+(Dashboards)",
+			pos="2384.7,1165",
+			shape=none];
+		b9ee2cf07cc34a4fbdf97219c1e8b356	[height=2.3,
+			image="/Users/nandu/Kishore/Projects/Architecture_Diagrams_Python_AI/Arch_Diagrams/arch_venv/lib/python3.10/site-packages/resources/onprem/\
+compute/server.png",
+			label="SAP S/4HANA
+(ERP Integration)",
+			pos="2384.7,941",
+			shape=none];
+	}
+	"3976628e01e4449cb5f053109b785d8e"	[height=2.3,
+		image="/Users/nandu/Kishore/Projects/Architecture_Diagrams_Python_AI/Arch_Diagrams/arch_venv/lib/python3.10/site-packages/resources/azure/\
+storage/data-lake-storage.png",
+		label="Delta Sharing
+(Zero-Copy Read)",
+		pos="410.9,821",
+		shape=none];
+	"40a8a0cd607f4182a000d5b792b48547" -> "3976628e01e4449cb5f053109b785d8e"	[color="#9C27B0",
+		dir=forward,
+		fontcolor="#2D3436",
+		fontname="Sans-Serif",
+		fontsize=13,
+		label=①,
+		lp="282.12,1286.8",
+		pos="e,386.45,903.58 171.74,1464.1 205.35,1437 243.75,1406 243.75,1406 243.75,1406 336.53,1079.3 383.43,914.21",
+		style=bold];
+	"65cb1491ef37494d8d791137eaaa4c0a" -> "3976628e01e4449cb5f053109b785d8e"	[color="#9C27B0",
+		dir=forward,
+		fontcolor="#2D3436",
+		fontname="Sans-Serif",
+		fontsize=13,
+		label=①,
+		lp="282.12,1133.9",
+		pos="e,374.66,903.71 171.74,1269.1 205.35,1242 243.75,1211 243.75,1211 243.75,1211 321.15,1029.3 370.29,913.97"];
+	"53a6a616285848a4988617b9e07671d8" -> "3976628e01e4449cb5f053109b785d8e"	[color="#9C27B0",
+		dir=forward,
+		fontcolor="#2D3436",
+		fontname="Sans-Serif",
+		fontsize=13,
+		label=①,
+		lp="282.12,981",
+		pos="e,360.72,878.71 171.74,1074.1 205.35,1047 243.75,1016 243.75,1016 243.75,1016 305.25,943.82 353.42,887.29"];
+	"370cb11d3fc94ef8850bf2787462d246" -> "3976628e01e4449cb5f053109b785d8e"	[color="#9C27B0",
+		dir=forward,
+		fontcolor="#2D3436",
+		fontname="Sans-Serif",
+		fontsize=13,
+		label=①,
+		lp="282.12,871.26",
+		pos="e,360.52,837.83 171.48,902.26 220.84,885.44 297.02,859.47 349.93,841.44"];
+	"2c037ef7492d4343a38c0de5815df150" -> "3976628e01e4449cb5f053109b785d8e"	[color="#9C27B0",
+		dir=forward,
+		fontcolor="#2D3436",
+		fontname="Sans-Serif",
+		fontsize=13,
+		label=①,
+		lp="282.12,785.43",
+		pos="e,360.52,804.34 171.48,740.56 220.84,757.22 297.02,782.92 349.93,800.77"];
+	fb91362d1463465fbb2011abb068cc6d -> "3976628e01e4449cb5f053109b785d8e"	[color="#9C27B0",
+		dir=forward,
+		fontcolor="#2D3436",
+		fontname="Sans-Serif",
+		fontsize=13,
+		label=①,
+		lp="282.12,686.15",
+		pos="e,360.72,763.58 171.74,568.86 205.35,595.99 243.75,627 243.75,627 243.75,627 305.25,698.81 353.42,755.05"];
+	"370f460666da4b16987e2c1dfb91296c" -> "3976628e01e4449cb5f053109b785d8e"	[color="#9C27B0",
+		dir=forward,
+		fontcolor="#2D3436",
+		fontname="Sans-Serif",
+		fontsize=13,
+		label=①,
+		lp="282.12,543.45",
+		pos="e,374.66,738.5 171.74,373.86 205.35,400.99 243.75,432 243.75,432 243.75,432 320.99,612.85 370.15,727.93"];
+	c1c264f10e294ea4b58bd3471851f8db -> "3976628e01e4449cb5f053109b785d8e"	[color="#9C27B0",
+		dir=forward,
+		fontcolor="#2D3436",
+		fontname="Sans-Serif",
+		fontsize=13,
+		label=①,
+		lp="282.12,400.75",
+		pos="e,386.36,738.26 171.74,178.86 205.35,205.99 243.75,237 243.75,237 243.75,237 336.41,562.69 383.34,727.63"];
+	"3976628e01e4449cb5f053109b785d8e" -> "4674d8d0f792441e906817dcf5437dc8"	[color="#9C27B0",
+		dir=forward,
+		fontcolor="#2D3436",
+		fontname="Sans-Serif",
+		fontsize=13,
+		label="② Zero-Copy Read",
+		lp="591.42,828.5",
+		pos="e,721.8,821 461.07,821 526.02,821 640.36,821 710.51,821",
+		style=bold];
+	bd6244cf557042c895bb122e6cbc4766	[height=2.3,
+		image="/Users/nandu/Kishore/Projects/Architecture_Diagrams_Python_AI/Arch_Diagrams/arch_venv/lib/python3.10/site-packages/resources/azure/\
+storage/data-lake-storage.png",
+		label="Delta Sharing
+(Write-Back)",
+		pos="1379.6,1136",
+		shape=none];
+	"0af2be479a5343928ba37bac5fb33144" -> bd6244cf557042c895bb122e6cbc4766	[color="#4CAF50",
+		dir=forward,
+		fontcolor="#2D3436",
+		fontname="Sans-Serif",
+		fontsize=13,
+		label="③ Daily Predictions",
+		lp="1198.7,1143.5",
+		pos="e,1329.3,1136 1068,1136 1133.1,1136 1247.7,1136 1318,1136",
+		style=bold];
+	"21da5cf083c946d2a805f767a4bb42c6" -> d814b365bfff4d899b5493a47db5620a	[color="#2196F3",
+		dir=forward,
+		fontcolor="#2D3436",
+		fontname="Sans-Serif",
+		fontsize=13,
+		label="⑦ REST API (Optional)",
+		lp="1571,657.5",
+		pos="e,2334.5,706.68 821.76,1670.4 830.74,1655.2 837.35,1644 837.35,1644 837.35,1644 967.35,709 967.35,709 967.35,709 1016.8,650 1016.8,\
+650 1016.8,650 1016.8,650 2064.4,650 2064.4,650 2230.7,684.91 2323.3,704.33",
+		style=dashed];
+	bd6244cf557042c895bb122e6cbc4766 -> a6a51a15893647eeaf2978580599b70b	[color="#4CAF50",
+		dir=forward,
+		fontcolor="#2D3436",
+		fontname="Sans-Serif",
+		fontsize=13,
+		label=④,
+		lp="1571,1238.4",
+		pos="e,1733.2,1271.1 1429.8,1154.9 1503.8,1183.2 1643.2,1236.6 1722.8,1267.1",
+		style=bold];
+	bd6244cf557042c895bb122e6cbc4766 -> "87830d3f5abb4e698eb2f800450e37ba"	[color="#4CAF50",
+		dir=forward,
+		fontcolor="#2D3436",
+		fontname="Sans-Serif",
+		fontsize=13,
+		label=④,
+		lp="1571,1116",
+		pos="e,1733.2,1062.3 1429.8,1125.7 1503.6,1110.3 1642.7,1081.2 1722.4,1064.6"];
+	bd6244cf557042c895bb122e6cbc4766 -> "8676dfe0ab60415e96494404423b0bf7"	[color="#4CAF50",
+		dir=forward,
+		fontcolor="#2D3436",
+		fontname="Sans-Serif",
+		fontsize=13,
+		label=④,
+		lp="1571,1043.5",
+		pos="e,1733.2,865.83 1429.8,1098.2 1504.2,1041.2 1644.9,933.45 1724.3,872.65"];
+	bd6244cf557042c895bb122e6cbc4766 -> "5f6323c5583e43f8b423d169c66cbb66"	[color="#4CAF50",
+		dir=forward,
+		fontcolor="#2D3436",
+		fontname="Sans-Serif",
+		fontsize=13,
+		label=④,
+		lp="1571,1393.1",
+		pos="e,1733.4,1481 1429.9,1186.4 1463.5,1220.8 1502,1260 1502,1260 1502,1260 1643,1394.7 1725.1,1473.1"];
+	e07c7f0ff5394c4f8c54f778821ed990	[height=2.3,
+		image="/Users/nandu/Kishore/Projects/Architecture_Diagrams_Python_AI/Arch_Diagrams/arch_venv/lib/python3.10/site-packages/resources/azure/\
+analytics/log-analytics-workspaces.png",
+		label="Data Product
+Subscription",
+		pos="2063.4,1052",
+		shape=none];
+	a6a51a15893647eeaf2978580599b70b -> e07c7f0ff5394c4f8c54f778821ed990	[color="#E91E63",
+		dir=forward,
+		fontcolor="#2D3436",
+		fontname="Sans-Serif",
+		fontsize=13,
+		label=⑤,
+		lp="1934.6,1171",
+		pos="e,2013,1094.3 1833.9,1247.7 1881.7,1206.8 1954,1144.8 2004.5,1101.6"];
+	"87830d3f5abb4e698eb2f800450e37ba" -> e07c7f0ff5394c4f8c54f778821ed990	[color="#E91E63",
+		dir=forward,
+		fontcolor="#2D3436",
+		fontname="Sans-Serif",
+		fontsize=13,
+		label=⑤,
+		lp="1934.6,1059.1",
+		pos="e,2013,1052 1833.9,1052 1880.8,1052 1951.3,1052 2001.6,1052"];
+	"8676dfe0ab60415e96494404423b0bf7" -> e07c7f0ff5394c4f8c54f778821ed990	[color="#E91E63",
+		dir=forward,
+		fontcolor="#2D3436",
+		fontname="Sans-Serif",
+		fontsize=13,
+		label=⑤,
+		lp="1934.6,960.54",
+		pos="e,2013,1012.2 1833.9,867.79 1881.6,906.21 1953.7,964.41 2004.2,1005.1"];
+	"5f6323c5583e43f8b423d169c66cbb66" -> e07c7f0ff5394c4f8c54f778821ed990	[color="#E91E63",
+		dir=forward,
+		fontcolor="#2D3436",
+		fontname="Sans-Serif",
+		fontsize=13,
+		label=⑤,
+		lp="1934.6,1344.5",
+		pos="e,2024.6,1134.6 1833.9,1478.5 1863.8,1448.5 1896.2,1416 1896.2,1416 1896.2,1416 1970.7,1252.7 2020,1144.9"];
+	e07c7f0ff5394c4f8c54f778821ed990 -> d814b365bfff4d899b5493a47db5620a	[color="#E91E63",
+		dir=forward,
+		fontcolor="#2D3436",
+		fontname="Sans-Serif",
+		fontsize=13,
+		label="⑥ Subscribe",
+		lp="2224,931.86",
+		pos="e,2334.4,768.67 2113.5,1000.4 2171.1,940.02 2266.2,840.25 2326.8,776.63",
+		style=bold];
+	e07c7f0ff5394c4f8c54f778821ed990 -> "52b85ff47117498c846a0c9fe19e5652"	[color="#E91E63",
+		dir=forward,
+		fontcolor="#2D3436",
+		fontname="Sans-Serif",
+		fontsize=13,
+		label="⑥ Subscribe",
+		lp="2224,1129.4",
+		pos="e,2334.4,1147.6 2113.5,1069.4 2170.1,1089.4 2263.1,1122.3 2323.8,1143.8",
+		style=bold];
+	e07c7f0ff5394c4f8c54f778821ed990 -> b9ee2cf07cc34a4fbdf97219c1e8b356	[color="#E91E63",
+		dir=forward,
+		fontcolor="#2D3436",
+		fontname="Sans-Serif",
+		fontsize=13,
+		label="⑥ Subscribe",
+		lp="2224,1017.2",
+		pos="e,2334.4,958.12 2113.5,1034.9 2170.1,1015.2 2263.1,982.91 2323.8,961.8",
+		style=bold];
+}
